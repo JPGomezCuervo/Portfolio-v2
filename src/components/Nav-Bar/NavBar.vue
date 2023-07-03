@@ -12,34 +12,44 @@ const { navBar } = toRefs(languages);
 
 
 const languageName = computed(() => {
-  return activeLanguage === "en" ? "EN/ES" : "ES/EN";
+    return activeLanguage === "en" ? "EN/ES" : "ES/EN";
 });
 
 </script>
 
 <template>
-  <nav class="header">
-    <div class="logo">
-      <p>https://Juan Gómez</p>
-    </div>
-    <ul class="options-container">
-      <li>{{ navBar.whoIAm}}</li>
-      <li>{{ navBar.projects }}</li>
-      <li>{{ navBar.contactMe }}</li>
-    </ul>
-    <div class="links-container">
-                    <a :href="url.github" target="_blank" rel="noreferrer">
-                        <img :src="githubIcon" alt=""/>
-                    </a>
-                    <a :href="url.linkedin" target="_blank" rel="noreferrer">
-                        <img :src="linkedinIcon" alt=""/>
-                    </a>
-                    <a :href="`mailto: ${url.gmail}`" target="_blank" rel="noreferrer">
-                        <img :src="gmailIcon" alt=""/>
-                    </a>
-                </div>
-    <button @click="toggleLanguage">{{ languageName }}</button>
-  </nav>
+    <nav class="header">
+        <div class="logo">
+            <p>https://Juan Gómez</p>
+        </div>
+        <ul class="options-container">
+
+            <li>
+                <a> {{ navBar.whoIAm }} </a>
+            </li>
+
+            <li>
+                <a>{{ navBar.projects }}</a>
+            </li>
+
+            <li>
+                <a>{{ navBar.contactMe }}</a>
+            </li>
+
+        </ul>
+        <div class="links-container">
+            <a :href="url.github" target="_blank" rel="noreferrer">
+                <img :src="githubIcon" alt="" />
+            </a>
+            <a :href="url.linkedin" target="_blank" rel="noreferrer">
+                <img :src="linkedinIcon" alt="" />
+            </a>
+            <a :href="`mailto: ${url.gmail}`" target="_blank" rel="noreferrer">
+                <img :src="gmailIcon" alt="" />
+            </a>
+        </div>
+        <button @click="toggleLanguage">{{ languageName }}</button>
+    </nav>
 </template>
 
 <style lang="scss" scoped>
