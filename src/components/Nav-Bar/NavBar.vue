@@ -5,6 +5,7 @@ import gmailIcon from "../../assets/icons/gmail.svg";
 import linkedinIcon from "../../assets/icons/linkedin.svg";
 import githubIcon from "../../assets/icons/github.svg";
 import url from "../../helpers/constants.json";
+import hamburguerIcon from "../../assets/icons/icons8-menu.svg";
 
 const { activeLanguage, languages, toggleLanguage } = store.value;
 
@@ -37,7 +38,7 @@ const languageName = computed(() => {
             </li>
 
         </ul>
-        <button class= "principal-button-shape" @click="toggleLanguage">{{ languageName }}</button>
+        <button class="main-button-shape" @click="toggleLanguage">{{ languageName }}</button>
         <div class="links-container">
             <a :href="url.github" target="_blank" rel="noreferrer">
                 <img :src="githubIcon" alt="" />
@@ -49,6 +50,22 @@ const languageName = computed(() => {
                 <img :src="gmailIcon" alt="" />
             </a>
         </div>
+
+
+        <label htmlFor="checkbox" class="label">
+            <img :src="hamburguerIcon" alt="" />
+        </label>
+
+        <input class="checkbox" type="checkbox" name="checkbox" id="checkbox">
+
+        <div class="dropdown-menu">
+            <ul>
+                <li> {{ navBar.whoIAm }} </li>
+                <li> {{ navBar.projects }} </li>
+                <li> {{ navBar.contactMe }} </li>
+            </ul>
+        </div>
+
     </nav>
 </template>
 
@@ -67,12 +84,14 @@ const languageName = computed(() => {
     padding: 0 2% 0 2%;
     box-shadow: 0 .4rem 0.4rem rgba(99, 99, 99, 0.6);
 }
-.navbar li, a {
-  list-style: none;
-  text-decoration: none;
-  color: inherit;
-  font-family: "Montserrat-Bold";
-  font-size: 1rem;
+
+.navbar li,
+a {
+    list-style: none;
+    text-decoration: none;
+    color: inherit;
+    font-family: "Montserrat-Bold";
+    font-size: 1rem;
 }
 
 .logo {
@@ -96,7 +115,7 @@ const languageName = computed(() => {
 
 .options-container {
     display: flex;
-    gap: clamp( 30px, 2vw, 100px);
+    gap: clamp(30px, 2vw, 100px);
     text-align: center;
     margin-right: auto;
 }
@@ -111,4 +130,60 @@ const languageName = computed(() => {
     height: 48px;
 }
 
+
+.label {
+    display: none;
+}
+
+.checkbox {
+    display: none;
+}
+
+.dropdown-menu {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .links-container {
+        display: none;
+    }
+
+    .main-button-shape {
+        margin-left: auto;
+    }
+    .options-container {
+        display: none;
+    }
+
+    .label {
+        display: initial;
+        cursor: pointer;
+        margin-left: 4vw;
+    }
+    .label img {
+        height: 40px;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        right: 50%;
+        transform: translate(-50%, 0%);
+        background-color: white;
+        display: none;
+        z-index: 99999;
+        width: 40vw;
+        border-radius: .6rem;
+        box-shadow: 0 .4rem 0.4rem rgba(99, 99, 99, 0.7);
+        margin-top: .5vh;
+    }
+
+    .checkbox:checked ~ .dropdown-menu {
+        display: initial;
+        
+    }
+
+
+}
 </style>
