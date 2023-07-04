@@ -46,16 +46,20 @@ $secondaryColor: #6f4ae7;
 $tertiaryColor: #FD6439;
 
 
-.Header {
-    background-color: $mainColor;
+body {
+width: 100%;
 }
 
-ul {
-  list-style: none;
+.principal-button-shape {
+
+  color: $secondaryColor;
+  background-color: $mainColor;
+  border: 2px solid $secondaryColor;
+  font-family: "Montserrat-Bold";
+  border-radius: .3rem;
+  cursor: pointer;
+  transition: .3s;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+
 
