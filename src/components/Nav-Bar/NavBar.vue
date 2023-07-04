@@ -64,6 +64,17 @@ const languageName = computed(() => {
                 <li> {{ navBar.projects }} </li>
                 <li> {{ navBar.contactMe }} </li>
             </ul>
+            <div class="links-container-dropdown">
+                <a :href="url.github" target="_blank" rel="noreferrer">
+                    <img :src="githubIcon" alt="" />
+                </a>
+                <a :href="url.linkedin" target="_blank" rel="noreferrer">
+                    <img :src="linkedinIcon" alt="" />
+                </a>
+                <a :href="`mailto: ${url.gmail}`" target="_blank" rel="noreferrer">
+                    <img :src="gmailIcon" alt="" />
+                </a>
+            </div>
         </div>
 
     </nav>
@@ -99,8 +110,6 @@ a {
     align-items: center;
     background-color: black;
     cursor: pointer;
-    min-width: fit-content;
-    min-height: fit-content;
     height: 40px;
     padding: 0 10px 0 10px;
     margin-right: clamp(20px, 2vw, 100px);
@@ -111,6 +120,7 @@ a {
     font-family: "Montserrat-ExtraBold";
     font-size: 1.3rem;
     white-space: nowrap;
+    margin: 0;
 }
 
 .options-container {
@@ -144,24 +154,13 @@ a {
 }
 
 @media (max-width: 1000px) {
-    .links-container {
-        display: none;
-    }
-
-    .main-button-shape {
-        margin-left: auto;
-    }
     .options-container {
         display: none;
     }
-
-    .label {
+    
+    .checkbox:checked~.dropdown-menu {
         display: initial;
-        cursor: pointer;
-        margin-left: 4vw;
-    }
-    .label img {
-        height: 40px;
+
     }
 
     .dropdown-menu {
@@ -171,19 +170,74 @@ a {
         right: 50%;
         transform: translate(-50%, 0%);
         background-color: white;
-        display: none;
         z-index: 99999;
         width: 40vw;
         border-radius: .6rem;
         box-shadow: 0 .4rem 0.4rem rgba(99, 99, 99, 0.7);
         margin-top: .5vh;
+        padding: 0 1% 0 1%;
     }
 
-    .checkbox:checked ~ .dropdown-menu {
+    .links-container {
+        display: none;
+    }
+
+    .links-container-dropdown {
+        display: flex;
+        gap: clamp(20px, 1vw, 40px);
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .dropdown-menu li {
+        text-align: center;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        cursor: pointer;
+    }
+
+    .links-container-dropdown img {
+        height: 30px;
+    }
+
+    .main-button-shape {
+        margin-left: auto;
+    }
+
+
+    .label {
         display: initial;
-        
+        cursor: pointer;
+        margin-left: 4vw;
+        margin-top: 5px;
     }
 
+    .label img {
+        height: 35px;
+    }
+
+
+    ul {
+        padding: 0;
+    }
+
+
+}
+
+@media (max-width: 500px) {
+
+    .label img {
+        height: 25px;
+    }
+
+    .logo {
+        padding: 0 3px 0 3px;
+        height: 35px;
+    }
+
+    .logo p {
+        font-size: 1rem;
+    }
 
 }
 </style>
