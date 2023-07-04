@@ -47,7 +47,8 @@ $tertiaryColor: #FD6439;
 
 
 body {
-width: 100%;
+width: 100vw;
+overflow-x: hidden;
 }
 
 .main-button-shape {
@@ -69,6 +70,11 @@ width: 100%;
 .main-button-shape:active {
   background-color: $mainColor;
   color: $secondaryColor;
+}
+
+.background {
+  background-color: $secondaryColor;
+  
 }
 
 
