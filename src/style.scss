@@ -61,5 +61,15 @@ width: 100%;
   transition: .3s;
 }
 
+.principal-button-shape:hover {
+  background-color: $secondaryColor;
+  color: $mainColor;
+}
+
+.principal-button-shape:active {
+  background-color: $mainColor;
+  color: $secondaryColor;
+}
+
 
 
