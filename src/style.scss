@@ -46,7 +46,30 @@ $secondaryColor: #6f4ae7;
 $tertiaryColor: #FD6439;
 
 
-.Header {
-    background-color: $mainColor;
+body {
+width: 100%;
 }
+
+.main-button-shape {
+
+  color: $secondaryColor;
+  background-color: $mainColor;
+  border: 2px solid $secondaryColor;
+  font-family: "Montserrat-Bold";
+  border-radius: .3rem;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.main-button-shape:hover {
+  background-color: $secondaryColor;
+  color: $mainColor;
+}
+
+.main-button-shape:active {
+  background-color: $mainColor;
+  color: $secondaryColor;
+}
+
+
 
