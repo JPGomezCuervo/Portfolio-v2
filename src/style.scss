@@ -50,7 +50,7 @@ body {
 width: 100%;
 }
 
-.principal-button-shape {
+.main-button-shape {
 
   color: $secondaryColor;
   background-color: $mainColor;
@@ -61,12 +61,12 @@ width: 100%;
   transition: .3s;
 }
 
-.principal-button-shape:hover {
+.main-button-shape:hover {
   background-color: $secondaryColor;
   color: $mainColor;
 }
 
-.principal-button-shape:active {
+.main-button-shape:active {
   background-color: $mainColor;
   color: $secondaryColor;
 }
