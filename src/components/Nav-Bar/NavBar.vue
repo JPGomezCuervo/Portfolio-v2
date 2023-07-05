@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, toRefs } from "vue";
+
+import { computed, toRefs, ref, onMounted, onBeforeUnmount } from "vue";
 import store from "../../store/index.ts";
 import gmailIcon from "../../assets/icons/gmail.svg";
 import linkedinIcon from "../../assets/icons/linkedin.svg";
@@ -11,15 +12,42 @@ const { activeLanguage, languages, toggleLanguage } = store.value;
 
 const { navBar } = toRefs(languages);
 
+const windowScroll = ref(0);
+const showNavBar = ref(true);
+const lastScrollPosition = ref(0);
 
 const languageName = computed(() => {
     return activeLanguage === "en" ? "EN/ES" : "ES/EN";
 });
 
+onMounted(() => {
+    window.addEventListener("scroll", handleScroll);
+});
+
+const handleScroll = () => {
+
+    // Get the current position
+    windowScroll.value = window.scrollY;
+
+    //On mobiles if the offset is negative, do nothing
+    if (windowScroll.value < 0) return;
+
+    // If the difference between the current position and the last position is less than 80px, do nothing
+    if (Math.abs(windowScroll.value - lastScrollPosition.value) <= 100) return;
+
+    // If the current position is greater than the last position, hide the navbar, otherwise show it
+    showNavBar.value = windowScroll.value < lastScrollPosition.value;
+    lastScrollPosition.value = windowScroll.value;
+};
+
+onBeforeUnmount(() => {
+    window.removeEventListener("scroll", handleScroll);
+});
+
 </script>
 
 <template>
-    <nav class="navbar">
+    <nav class="navbar" :class="{ 'navbar--hidden': !showNavBar }">
         <div class="logo">
             <p>https://Juan Gómez</p>
         </div>
@@ -94,6 +122,7 @@ const languageName = computed(() => {
     min-height: 12vh;
     padding: 0 2% 0 2%;
     box-shadow: 0 .4rem 0.4rem rgba(99, 99, 99, 0.6);
+    transition: 0.1s all ease-out;
 }
 
 .navbar li,
@@ -103,6 +132,11 @@ a {
     color: inherit;
     font-family: "Montserrat-Bold";
     font-size: 1rem;
+}
+
+.navbar.navbar--hidden {
+    box-shadow: none;
+    transform: translate3d(0, -100%, 0);
 }
 
 .logo {
@@ -157,7 +191,7 @@ a {
     .options-container {
         display: none;
     }
-    
+
     .checkbox:checked~.dropdown-menu {
         display: initial;
 
