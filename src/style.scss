@@ -53,6 +53,14 @@ margin: 0;
 padding: 0;
 }
 
+h1 {
+  font-family: "Montserrat-ExtraBold";
+}
+
+h2 {
+  font-family: "Montserrat-Bold";
+}
+
 .main-button-shape {
 
   color: $secondaryColor;
@@ -77,10 +85,6 @@ padding: 0;
 .background {
   background-color: $secondaryColor;
   
-}
-
-h1 {
-  font-family: "Montserrat-ExtraBold";
 }
 
 
