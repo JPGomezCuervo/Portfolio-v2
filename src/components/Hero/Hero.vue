@@ -16,7 +16,9 @@ const { hero } = toRefs(languages);
             <h3>{{ hero.subtitle }}</h3>
         </div>
 
-        <img :src="photo" alt="" id="photo"/>
+        <div class="right-container">
+            <img :src="photo" alt="" id="photo"/>
+        </div>
 
     </section>
 
@@ -28,10 +30,11 @@ const { hero } = toRefs(languages);
 .background {
     display: flex;
     flex-wrap: wrap-reverse;
-    padding-top: 8.5%;
+    height: fit-content;
+    padding-top: clamp(8rem, 18vh + 1rem, 30rem);
+    padding-bottom: clamp(2rem,5vh + 1rem, 30rem);
     padding-left: 2%;
     padding-right: 2%;
-    height: 80vh;
     width: 96%;
     justify-content: center;
     align-items: center;
@@ -40,12 +43,16 @@ const { hero } = toRefs(languages);
 .left-container {
     display: flex;
     flex-direction: column;
-    // align-items: flex-start;
+    width: clamp(490px, 20vw, 400px);
+    align-items: center;
+    // margin-right: 0%;
 }
 .left-container h1 {
-    font-size: 5.5rem;
-    margin-top: 5rem;
-    margin-bottom: 3rem;
+    font-size: clamp(2rem, 3.5rem + 4vw, 8rem);
+    width: fit-content;
+    margin-top: 0rem;
+    margin-bottom: clamp(1rem, 1rem + 1vw, 3rem);
+    line-height: 110%;
     text-align: left;
     color: white; 
 }
@@ -54,16 +61,52 @@ const { hero } = toRefs(languages);
     font-family: "Montserrat-semiBold";
     font-size: 2.2rem;
     font-weight: 200;
-    width: 70%;
+    width: fit-content;
     text-align: left;
     color: white;
+    margin: 0;
+}
+
+
+.right-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: clamp(0rem, 0rem + 5vw, 60rem);
 }
 
 #photo {
-    height: 24rem;
+    // height: 24rem;
+    height: clamp(18rem, 2rem + 35vw, 30rem);
     border-radius: 50rem;
+    margin-bottom: 2%;
 }
 
+
+
+
+@media (max-width: 932px){
+    .left-container h1 {
+        text-align: center;
+    }
+
+    .left-container h3 {
+        text-align: center;
+        width: 90%;
+    }
+
+    .right-container {
+        margin-left: 0rem;
+    }
+}
+
+@media  (max-width: 575px) {
+
+    .left-container h3 {
+        font-size: 1.5rem;
+    }
+    
+}
 
 
 </style>
