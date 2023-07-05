@@ -49,6 +49,8 @@ $tertiaryColor: #FD6439;
 body {
 width: 100vw;
 overflow-x: hidden;
+margin: 0;
+padding: 0;
 }
 
 .main-button-shape {
@@ -75,6 +77,10 @@ overflow-x: hidden;
 .background {
   background-color: $secondaryColor;
   
+}
+
+h1 {
+  font-family: "Montserrat-ExtraBold";
 }
 
 
