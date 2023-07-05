@@ -43,12 +43,12 @@ const { hero } = toRefs(languages);
 .left-container {
     display: flex;
     flex-direction: column;
-    width: clamp(490px, 20vw, 400px);
+    width: clamp(460px, 20vw, 400px);
     align-items: center;
     // margin-right: 0%;
 }
 .left-container h1 {
-    font-size: clamp(2rem, 2.5rem + 4vw, 8rem);
+    font-size: clamp(2rem, 2.3rem + 4vw, 8rem);
     width: fit-content;
     margin-top: 0rem;
     margin-bottom: clamp(1rem, 1rem + 1vw, 3rem);
@@ -59,7 +59,7 @@ const { hero } = toRefs(languages);
 
 .left-container h3 {
     font-family: "Montserrat-semiBold";
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 200;
     width: fit-content;
     text-align: left;
@@ -77,7 +77,7 @@ const { hero } = toRefs(languages);
 
 #photo {
     // height: 24rem;
-    height: clamp(14rem, 2rem + 35vw, 30rem);
+    height: clamp(14rem, 2rem + 35vw, 22rem);
     border-radius: 50rem;
     margin-bottom: 2%;
 }
