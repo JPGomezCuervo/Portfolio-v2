@@ -11,13 +11,15 @@ const { hero } = toRefs(languages);
 <template>
     <section class="background">
 
-        <div class="left-container">
-            <h1>{{ hero.title }}</h1>
-            <h3>{{ hero.subtitle }}</h3>
-        </div>
-
-        <div class="right-container">
-            <img :src="photo" alt="" id="photo"/>
+        <div class="container">
+            <div class="left-container">
+                <h1>{{ hero.title }}</h1>
+                <h3>{{ hero.subtitle }}</h3>
+            </div>
+    
+            <div class="right-container">
+                <img :src="photo" alt="" id="photo"/>
+            </div>
         </div>
 
     </section>
@@ -40,11 +42,21 @@ const { hero } = toRefs(languages);
     align-items: center;
 }
 
+.container {
+    display: flex;
+    width: clamp(30rem, 90%, 80rem);
+    gap: 2%;
+    flex-wrap: wrap-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .left-container {
     display: flex;
     flex-direction: column;
-    width: clamp(460px, 20vw, 400px);
+    width: clamp(350px, 20vw, 400px);
     align-items: center;
+    justify-self: left;
     // margin-right: 0%;
 }
 .left-container h1 {
@@ -61,8 +73,8 @@ const { hero } = toRefs(languages);
     font-family: "Montserrat-semiBold";
     font-size: 2rem;
     font-weight: 200;
-    width: fit-content;
-    text-align: left;
+    width: 110%;
+    text-align: start;
     color: white;
     margin: 0;
 }
@@ -72,7 +84,6 @@ const { hero } = toRefs(languages);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: clamp(0rem, 0rem + 5vw, 60rem);
 }
 
 #photo {
@@ -85,7 +96,11 @@ const { hero } = toRefs(languages);
 
 
 
-@media (max-width: 932px){
+@media (max-width: 1000px){
+
+    .container {
+        gap: 0;
+    }
     .left-container h1 {
         text-align: center;
     }
