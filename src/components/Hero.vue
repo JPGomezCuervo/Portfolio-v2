@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { toRefs } from "vue";
-import photo from "../../assets/images/hero/photograph.jpg";
-import store from "../../store";
+import photo from "../assets/images/hero/photograph.jpg";
+import store from "../store";
 
 const {  languages } = store.value;
 const { hero } = toRefs(languages);
@@ -25,7 +25,7 @@ const { hero } = toRefs(languages);
 </template>
 
 <style lang="scss" scoped>
-@import "../../style.scss";
+@import "../style.scss";
 
 .background {
     display: flex;

@@ -1,12 +1,12 @@
 <script setup lang="ts">
 
 import { computed, toRefs, ref, onMounted, onBeforeUnmount } from "vue";
-import store from "../../store/index.ts";
-import gmailIcon from "../../assets/icons/gmail.svg";
-import linkedinIcon from "../../assets/icons/linkedin.svg";
-import githubIcon from "../../assets/icons/github.svg";
-import url from "../../helpers/constants.json";
-import hamburguerIcon from "../../assets/icons/icons8-menu.svg";
+import store from "../store/index.ts";
+import gmailIcon from "../assets/icons/gmail.svg";
+import linkedinIcon from "../assets/icons/linkedin.svg";
+import githubIcon from "../assets/icons/github.svg";
+import url from "../helpers/constants.json";
+import hamburguerIcon from "../assets/icons/icons8-menu.svg";
 
 const { activeLanguage, languages, toggleLanguage } = store.value;
 
@@ -109,7 +109,7 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss" scoped>
-@import "./../../style.scss";
+@import "../style.scss";
 
 .navbar {
     background-color: white;

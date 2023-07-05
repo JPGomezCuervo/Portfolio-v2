@@ -1,19 +1,18 @@
 <script setup lang="ts">
 
-import NavBar from './components/TheNavBar.vue';
-import Home from './views/Home.vue';
+import Hero from '../components/Hero.vue';
+
 </script>
 
 <template>
-  <NavBar/>
-  <Home/>
+  <Hero/>
   <div class="lolis">
 
   </div>
 </template>
 
 <style lang="scss" scoped>
-@import "./style.scss";
+@import "../style.scss";
 
 .lolis {
   height: 290vh;
