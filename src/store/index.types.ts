@@ -9,10 +9,15 @@ interface Hero {
   title: string;
   subtitle: string;
 }
+interface WhoIAm {
+  title: string;
+  description: string;
+}
 
 interface Languages {
   navBar: NavBar;
   hero: Hero;
+  whoIAm: WhoIAm;
 }
 
 interface RootStore {
