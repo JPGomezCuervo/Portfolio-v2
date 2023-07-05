@@ -1,9 +1,13 @@
 <script setup lang="ts">
 import arrow from "../assets/icons/icons8-arrow.svg";
+import WhoIAm from "./WhoIAm.vue";
 </script>
 
 <template>
     <section class="carousel" id="carousel">
+        <div class="display">
+            <WhoIAm/>
+        </div>
 
     </section>
     <div class="navigation">
@@ -23,9 +27,15 @@ import arrow from "../assets/icons/icons8-arrow.svg";
 
 .carousel {
     display: flex;
-    height: 100vh;
+    height: fit-content;
     width: 100%;
-    background-color: pink;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.display {
+    width: clamp(30rem, 90%, 80rem);
 }
 
 .navigation {
@@ -33,6 +43,7 @@ import arrow from "../assets/icons/icons8-arrow.svg";
     justify-content: center;
     align-items: center;
     gap: 1%;
+    margin-bottom: 2%;
 }
 
 .romboids {
