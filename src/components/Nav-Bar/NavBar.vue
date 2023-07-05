@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 import { computed, toRefs, ref, onMounted, onBeforeUnmount } from "vue";
 import store from "../../store/index.ts";
 import gmailIcon from "../../assets/icons/gmail.svg";
@@ -46,7 +47,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <nav class="navbar" :class="{'navbar--hidden': !showNavBar}">
+    <nav class="navbar" :class="{ 'navbar--hidden': !showNavBar }">
         <div class="logo">
             <p>https://Juan Gómez</p>
         </div>
@@ -134,8 +135,8 @@ a {
 }
 
 .navbar.navbar--hidden {
-  box-shadow: none;
-  transform: translate3d(0, -100%, 0);
+    box-shadow: none;
+    transform: translate3d(0, -100%, 0);
 }
 
 .logo {
@@ -190,7 +191,7 @@ a {
     .options-container {
         display: none;
     }
-    
+
     .checkbox:checked~.dropdown-menu {
         display: initial;
 

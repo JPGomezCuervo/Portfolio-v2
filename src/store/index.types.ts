@@ -5,9 +5,14 @@ interface NavBar {
   contactMe: string;
   whoIAm: string;
 }
+interface Hero {
+  title: string;
+  subtitle: string;
+}
 
 interface Languages {
   navBar: NavBar;
+  hero: Hero;
 }
 
 interface RootStore {
