@@ -10,17 +10,13 @@ import es_whoIAm from "../translations/es/whoIAm.json";
 const toggleLanguage = () => {
     store.value.activeLanguage = store.value.activeLanguage === "en" ? "es" : "en";
     if (store.value.activeLanguage === "en") {
-        store.value.languages = {
-            navBar:en_navbar,
-            hero:en_hero,
-            whoIAm:en_whoIAm
-        }
+        store.value.languages.navBar = en_navbar;
+        store.value.languages.hero = en_hero;
+        store.value.languages.whoIAm = en_whoIAm
     } else {
-        store.value.languages = {
-            navBar:es_navbar,
-            hero:es_hero,
-            whoIAm:es_whoIAm
-        }
+        store.value.languages.navBar = es_navbar;
+        store.value.languages.hero = es_hero;
+        store.value.languages.whoIAm = es_whoIAm
     }
 };
 const store:Ref<RootStore> = ref({
