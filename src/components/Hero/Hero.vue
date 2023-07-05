@@ -48,7 +48,7 @@ const { hero } = toRefs(languages);
     // margin-right: 0%;
 }
 .left-container h1 {
-    font-size: clamp(2rem, 3.5rem + 4vw, 8rem);
+    font-size: clamp(2rem, 2.5rem + 4vw, 8rem);
     width: fit-content;
     margin-top: 0rem;
     margin-bottom: clamp(1rem, 1rem + 1vw, 3rem);
@@ -77,7 +77,7 @@ const { hero } = toRefs(languages);
 
 #photo {
     // height: 24rem;
-    height: clamp(18rem, 2rem + 35vw, 30rem);
+    height: clamp(14rem, 2rem + 35vw, 30rem);
     border-radius: 50rem;
     margin-bottom: 2%;
 }
@@ -103,7 +103,7 @@ const { hero } = toRefs(languages);
 @media  (max-width: 575px) {
 
     .left-container h3 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     
 }
