@@ -54,13 +54,12 @@ const { hero } = toRefs(languages);
 .left-container {
     display: flex;
     flex-direction: column;
-    width: clamp(350px, 20vw, 400px);
+    width: clamp(200px, 66vw, 400px);
     align-items: center;
     justify-self: left;
-    // margin-right: 0%;
 }
 .left-container h1 {
-    font-size: clamp(2rem, 2.3rem + 4vw, 8rem);
+    font-size: clamp(2rem, 2.2rem + 4vw, 8rem);
     width: fit-content;
     margin-top: 0rem;
     margin-bottom: clamp(1rem, 1rem + 1vw, 3rem);

@@ -7,12 +7,20 @@ import Home from './views/Home.vue';
 <template>
   <NavBar/>
   <Home/>
+  <div class="lolis">
+
+  </div>
 
 </template>
 
 <style lang="scss" scoped>
 @import "./style.scss";
 
+.lolis {
+  background-color: pink;
+  width: 100%;
+  height: 100vh;
+}
 
 
 </style>
