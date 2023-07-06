@@ -5,20 +5,21 @@ import WhoIAm from "./WhoIAm.vue";
 
 <template>
     <section class="carousel" id="carousel">
+
         <div class="display">
             <WhoIAm/>
         </div>
 
+        <div class="navigation">
+    
+            <img :src="arrow" class="left-arrow arrow"/>
+            <div class="romboids"></div>
+            <div class="romboids"></div>
+            <div class="romboids"></div>
+            <img :src="arrow" class="right-arrow arrow"/>
+    
+        </div>
     </section>
-    <div class="navigation">
-
-        <img :src="arrow" class="left-arrow arrow"/>
-        <div class="romboids"></div>
-        <div class="romboids"></div>
-        <div class="romboids"></div>
-        <img :src="arrow" class="right-arrow arrow"/>
-
-    </div>
 
 </template>
 
@@ -27,6 +28,7 @@ import WhoIAm from "./WhoIAm.vue";
 
 .carousel {
     display: flex;
+    flex-direction: column;
     height: fit-content;
     width: 100%;
     align-items: center;
@@ -42,6 +44,7 @@ import WhoIAm from "./WhoIAm.vue";
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     gap: 1%;
     margin-bottom: 2%;
 }

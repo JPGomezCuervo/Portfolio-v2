@@ -45,27 +45,43 @@ const { whoIAm }= toRefs(selectLanguages());
 }
 
 .image-frame {
-    // height: clamp(10rem, 30vh, 18rem);
-    width: 30rem;
+    height: clamp(20rem, 38vh, 40rem);
+    width: clamp(20rem, 38vh, 40rem);   
     margin-bottom: 2%;
 }
 
 p {
     font-family: "Montserrat-Medium";
-    font-size: 1.6rem;
-    width: 25rem;
-    line-height: 2.5rem;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    width: 28rem;
+    line-height: clamp(1.8rem, 2.5vw, 2.5rem);
     margin: 0;
 }
 
 @media (max-width: 1000px) {
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
     p {
         text-align: center;
+        margin-top: clamp(1rem, 1vh, 2rem);
+        margin-bottom: 5%;
+        font-size: clamp(1rem, 1rem + 1vw, 1.6rem);
+        line-height: clamp(1.5rem, 3vw, 2.5rem);
+        // width: 20rem;
+        // width: clamp(15rem, 75vw, 35rem);
+        width: 100%;
     }
 
+    .image-frame {
+        height: clamp(6rem, 18vh, 40rem);
+        width: clamp(6rem, 18vh, 40rem);   
+    }
     .image-frame img {
         border-radius: 200%;
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 
     }
 
