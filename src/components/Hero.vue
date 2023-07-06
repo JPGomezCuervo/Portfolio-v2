@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { toRefs } from "vue";
 import photo from "../assets/images/hero/photograph.jpg";
-import store from "../store";
+import { selectLanguages } from "../store";
 
-const {  languages } = store.value;
-const { hero } = toRefs(languages);
+
+const { hero } = toRefs(selectLanguages());
+
 
 </script>
 
