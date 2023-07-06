@@ -1,28 +1,23 @@
 <script setup lang="ts">
 
-import { computed, toRefs, ref, onMounted, onBeforeUnmount } from "vue";
-import store from "../store/index.ts";
 import gmailIcon from "../assets/icons/gmail.svg";
 import linkedinIcon from "../assets/icons/linkedin.svg";
 import githubIcon from "../assets/icons/github.svg";
 import url from "../helpers/constants.json";
 import hamburguerIcon from "../assets/icons/icons8-menu.svg";
+import { computed, toRefs, ref, onMounted, onBeforeUnmount } from "vue";
+import { selectActiveLanguage, selectLanguages, setLanguage } from "../store/index.ts";
 
-const { activeLanguage, languages, toggleLanguage } = store.value;
-
-const { navBar } = toRefs(languages);
-
-const windowScroll = ref(0);
-const showNavBar = ref(true);
-const lastScrollPosition = ref(0);
-
+//Implement the language toggle
+const activeLanguage = selectActiveLanguage();
 const languageName = computed(() => {
     return activeLanguage === "en" ? "EN/ES" : "ES/EN";
 });
 
-onMounted(() => {
-    window.addEventListener("scroll", handleScroll);
-});
+//Implement the navbar hide/show effect
+const windowScroll = ref(0);
+const showNavBar = ref(true);
+const lastScrollPosition = ref(0);
 
 const handleScroll = () => {
 
@@ -40,9 +35,16 @@ const handleScroll = () => {
     lastScrollPosition.value = windowScroll.value;
 };
 
+//Add event listeners and clean them up
+onMounted(() => {
+    window.addEventListener("scroll", handleScroll);
+});
+
 onBeforeUnmount(() => {
     window.removeEventListener("scroll", handleScroll);
 });
+
+const { navBar } = toRefs(selectLanguages());
 
 </script>
 
@@ -66,7 +68,7 @@ onBeforeUnmount(() => {
             </li>
 
         </ul>
-        <button class="main-button-shape" @click="toggleLanguage">{{ languageName }}</button>
+        <button class="main-button-shape" @click="setLanguage">{{ languageName }}</button>
         <div class="links-container">
             <a :href="url.github" target="_blank" rel="noreferrer">
                 <img :src="githubIcon" alt="" />
