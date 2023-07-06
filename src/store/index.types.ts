@@ -1,26 +1,26 @@
-type Language = "es" | "en";
+export type Language = "es" | "en";
 
-interface NavBar {
+export interface NavBar {
   projects: string;
   contactMe: string;
   whoIAm: string;
 }
-interface Hero {
+export interface Hero {
   title: string;
   subtitle: string;
 }
-interface WhoIAm {
+export interface WhoIAm {
   title: string;
   description: string;
 }
 
-interface Languages {
+export interface Languages {
   navBar: NavBar;
   hero: Hero;
   whoIAm: WhoIAm;
 }
 
-interface RootStore {
+export interface RootStore {
   activeLanguage: Language;
   languages : Languages;
   toggleLanguage: () => void;
