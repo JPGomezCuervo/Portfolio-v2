@@ -14,10 +14,27 @@ export interface WhoIAm {
   description: string;
 }
 
+export interface Form {
+  title: string;
+  subtitle: string;
+  description: string;
+  form: {
+    name: string;
+    namePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    message: string;
+    messagePlaceholder: string;
+    button: string;
+  };
+}
+
+
 export interface Languages {
   navBar: NavBar;
   hero: Hero;
   whoIAm: WhoIAm;
+  form: Form;
 }
 
 export interface RootStore {
