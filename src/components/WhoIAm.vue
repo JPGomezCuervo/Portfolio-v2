@@ -35,7 +35,6 @@ const { whoIAm }= toRefs(selectLanguages());
     justify-content: center;
     align-items: center;
     gap: 4%;
-
 }
 
 .image-frame img {
@@ -45,8 +44,8 @@ const { whoIAm }= toRefs(selectLanguages());
 }
 
 .image-frame {
-    height: clamp(20rem, 38vh, 40rem);
-    width: clamp(20rem, 38vh, 40rem);   
+    height: clamp(28rem, 38vh, 40rem);
+    width: clamp(28rem, 38vh, 40rem);   
     margin-bottom: 2%;
 }
 

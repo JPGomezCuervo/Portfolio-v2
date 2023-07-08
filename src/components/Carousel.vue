@@ -46,7 +46,7 @@ import WhoIAm from "./WhoIAm.vue";
     align-items: center;
     width: 100%;
     gap: 1%;
-    margin-bottom: 2%;
+    margin-bottom: clamp(1rem, 2vh, 2rem);
 }
 
 .romboids {
