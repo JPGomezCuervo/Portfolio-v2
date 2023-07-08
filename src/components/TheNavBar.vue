@@ -125,6 +125,7 @@ const { navBar } = toRefs(selectLanguages());
     padding: 0 2% 0 2%;
     box-shadow: 0 .4rem 0.4rem rgba(99, 99, 99, 0.6);
     transition: 0.1s all ease-out;
+    z-index: 1000;
 }
 
 .navbar li,
@@ -250,6 +251,7 @@ a {
 
     .label img {
         height: 35px;
+        padding-right: 10px;
     }
 
 
