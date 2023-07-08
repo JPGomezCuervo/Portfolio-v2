@@ -11,31 +11,27 @@ const { hero } = toRefs(selectLanguages());
 
 <template>
     <section class="background">
-            <div class="split">
-                
-                    <div class="grid-container">
-                        <div class="left-container">
-                            <h1>{{ hero.title }}</h1>
-                            <h3>{{ hero.subtitle}}</h3>
-                        </div>
-                
-                        <div class="right-container">
-                            <img :src="photo" alt="" id="photo"/>
-                        </div>
-                    </div>
+        <div class="split">
+
+            <div class="grid-container">
+                <div class="left-container">
+                    <h1>{{ hero.title }}</h1>
+                    <h3>{{ hero.subtitle }}</h3>
+                </div>
+
+                <div class="right-container">
+                    <img :src="photo" alt="" id="photo" />
+                </div>
             </div>
+        </div>
 
     </section>
-
 </template>
 
 <style lang="scss" scoped>
 @import "../style.scss";
 
 
-.backgroud {
-
-}
 .split {
     display: block;
     padding: 90px 0;
@@ -43,24 +39,22 @@ const { hero } = toRefs(selectLanguages());
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr ;
-  grid-template-rows: auto; 
-  margin: 0 auto;
-  max-width: 1440px;
-  padding: 0 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    margin: 0 auto;
+    max-width: 1440px;
+    padding: 0 60px;
 }
 
 .left-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
-    background-color: red;
     color: white;
 }
 
-.right-container {
-    background-color: blue;
-    width: 100%;
-}
 
 .left-container h1 {
     text-align: left;
@@ -72,5 +66,17 @@ const { hero } = toRefs(selectLanguages());
 .left-container h3 {
     font-family: "Montserrat-semiBold";
     font-size: clamp(1rem, 1rem + 2vw, 3rem);
+}
+
+.right-container {
+    width: 100%;
+}
+
+#photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 100%;
+    transform: scale(.8);
 }
 </style>
