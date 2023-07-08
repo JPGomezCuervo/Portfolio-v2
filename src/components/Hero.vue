@@ -16,11 +16,11 @@ const { hero } = toRefs(selectLanguages());
                     <div class="grid-container">
                         <div class="left-container">
                             <h1>{{ hero.title }}</h1>
-                            <h3>{{ hero.subtitle }}</h3>
+                            <h3>{{ hero.subtitle}}</h3>
                         </div>
                 
                         <div class="right-container">
-                            <!-- <img :src="photo" alt="" id="photo"/> -->
+                            <img :src="photo" alt="" id="photo"/>
                         </div>
                     </div>
             </div>
@@ -32,6 +32,10 @@ const { hero } = toRefs(selectLanguages());
 <style lang="scss" scoped>
 @import "../style.scss";
 
+
+.backgroud {
+
+}
 .split {
     display: block;
     padding: 90px 0;
@@ -39,14 +43,15 @@ const { hero } = toRefs(selectLanguages());
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    padding: 0 10%;
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  grid-template-rows: auto; 
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 60px;
 }
 
 .left-container {
-    height: 10rem;
     width: 100%;
     background-color: red;
     color: white;
@@ -54,7 +59,18 @@ const { hero } = toRefs(selectLanguages());
 
 .right-container {
     background-color: blue;
-    height: 100%;
     width: 100%;
+}
+
+.left-container h1 {
+    text-align: left;
+    font-size: clamp(2rem, 2rem + 4vw, 8rem);
+    width: 20%;
+    margin: 0;
+}
+
+.left-container h3 {
+    font-family: "Montserrat-semiBold";
+    font-size: clamp(1rem, 1rem + 2vw, 3rem);
 }
 </style>
