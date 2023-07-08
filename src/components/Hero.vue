@@ -31,7 +31,6 @@ const { hero } = toRefs(selectLanguages());
 <style lang="scss" scoped>
 @import "../style.scss";
 
-
 .split {
     display: block;
     padding: 90px 0;
@@ -45,6 +44,7 @@ const { hero } = toRefs(selectLanguages());
     margin: 0 auto;
     max-width: 1440px;
     padding: 0 60px;
+    gap: 10px;
 }
 
 .left-container {
@@ -66,6 +66,8 @@ const { hero } = toRefs(selectLanguages());
 .left-container h3 {
     font-family: "Montserrat-semiBold";
     font-size: clamp(1rem, 1rem + 2vw, 3rem);
+    // width: clamp()
+    width: 30rem;
 }
 
 .right-container {
@@ -77,6 +79,41 @@ const { hero } = toRefs(selectLanguages());
     height: 100%;
     object-fit: cover;
     border-radius: 100%;
-    transform: scale(.8);
+    transform: scale(.85);
+}
+
+@media (max-width: 1000px) {
+
+    .grid-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 0;
+        margin: 0;
+        padding: 0 20px;
+    }
+
+    .left-container {
+        align-items: center;
+        grid-row: 2;
+    }
+
+    .left-container h1,
+    h3 {
+        width: fit-content;
+        text-align: center;
+    }
+
+    .left-container h3 {
+        width: fit-content;
+    }
+    .right-container {
+        display: flex;
+        justify-content: center;
+    }
+    #photo {
+        // max-width: 200px;
+        // width: 500px;
+        width: clamp(200px, 300px + 20vw, 500px);
+    }
 }
 </style>
