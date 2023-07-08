@@ -116,7 +116,7 @@ const { navBar } = toRefs(selectLanguages());
 .navbar {
     background-color: white;
     display: flex;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 96%;
