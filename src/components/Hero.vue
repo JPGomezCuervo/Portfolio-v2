@@ -84,6 +84,7 @@ const { hero } = toRefs(selectLanguages());
 
 @media (max-width: 1000px) {
 
+
     .grid-container {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
@@ -95,16 +96,18 @@ const { hero } = toRefs(selectLanguages());
     .left-container {
         align-items: center;
         grid-row: 2;
+        width: 100%;
     }
 
     .left-container h1,
     h3 {
-        width: fit-content;
+        width: 100%;
         text-align: center;
     }
 
     .left-container h3 {
-        width: fit-content;
+        width: 100%;
+        height: fit-content;
     }
     .right-container {
         display: flex;
@@ -113,7 +116,21 @@ const { hero } = toRefs(selectLanguages());
     #photo {
         // max-width: 200px;
         // width: 500px;
-        width: clamp(200px, 300px + 20vw, 500px);
+        width: clamp(150px, 30px + 50vw, 500px);
+        // width: 150px;
     }
+}
+
+@media (max-width: 450px) {
+    .split {
+        padding: 20px 0;
+    }
+    .left-container h1 {
+        font-size: clamp(1.5rem, 1.5rem + 4vw, 6rem);
+    }
+    .left-container h3 {
+        font-size: clamp(1rem, 1rem + 1vw, 3rem);
+    }
+
 }
 </style>
