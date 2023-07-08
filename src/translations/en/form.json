@@ -4,11 +4,11 @@
     "description": "Get your space suit ready and tell me your ideas to develop your dream application.",
     "form": {
         "name": "Name",
-        "namePlaceHolder": "John Doe",
+        "namePlaceholder": "John Doe",
         "email": "Email",
-        "emailPlaceHolder": "johndoe@gmail.com",
+        "emailPlaceholder": "johndoe@gmail.com",
         "message": "Message",
-        "messagePlaceHolder": "Your message...",
+        "messagePlaceholder": "Your message...",
         "button": "Send email"
     }
 }

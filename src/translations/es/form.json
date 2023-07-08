@@ -4,11 +4,11 @@
     "description": "Prepara tu traje espacial y cuéntame tus ideas para desarrollar la aplicación de tus sueños.",
     "form": {
         "name": "Nombre",
-        "namePlaceHolder": "Juan Pablo",
+        "namePlaceholder": "Juan Pablo",
         "email": "Correo Electrónico",
-        "emailPlaceHolder": "johndoe@gmail.com",
+        "emailPlaceholder": "johndoe@gmail.com",
         "message": "Mensaje",
-        "messagePlaceHolder": "Tu mensaje...",
+        "messagePlaceholder": "Tu mensaje...",
         "button": "Enviar correo"
     }
 }
