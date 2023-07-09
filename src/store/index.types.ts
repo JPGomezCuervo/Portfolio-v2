@@ -50,6 +50,7 @@ export interface BaseInput {
   type: string;
   class: string;
   modelValue: string;
+  error:string;
 }
 
 export interface TextArea {
@@ -58,4 +59,5 @@ export interface TextArea {
   placeholder: string;
   class: string;
   modelValue: string;
+  error:string;
 }
