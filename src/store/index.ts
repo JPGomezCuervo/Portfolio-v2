@@ -7,6 +7,8 @@ import en_whoIAm from "../translations/en/whoIAm.json";
 import es_whoIAm from "../translations/es/whoIAm.json";
 import en_form from "../translations/en/form.json";
 import es_form from "../translations/es/form.json";
+import es_validations from "../translations/es/validations.json";
+import en_validations from "../translations/en/validations.json";
 import { RootStore } from "./index.types";
 
 
@@ -17,7 +19,8 @@ const store: Ref<RootStore> = ref({
     navBar: en_navbar,
     hero: en_hero,
     whoIAm: en_whoIAm,
-    form: en_form
+    form: en_form,
+    validations: en_validations
   },
   toggleLanguage
 });
@@ -34,14 +37,16 @@ function toggleLanguage () {
       navBar: en_navbar,
       hero: en_hero,
       whoIAm: en_whoIAm,
-      form: en_form
+      form: en_form,
+      validations: en_validations
     });
   } else {
     Object.assign(languages, {
       navBar: es_navbar,
       hero: es_hero,
       whoIAm: es_whoIAm,
-      form: es_form
+      form: es_form,
+      validations: es_validations
     });
   }
 };
