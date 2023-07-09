@@ -51,3 +51,11 @@ export interface BaseInput {
   class: string;
   modelValue: string;
 }
+
+export interface TextArea {
+  label: string;
+  name: string;
+  placeholder: string;
+  class: string;
+  modelValue: string;
+}
