@@ -29,12 +29,30 @@ export interface Form {
   };
 }
 
+export interface Validation {
+  name: {
+    required: string;
+    minLength: string;
+    maxLength: string;
+    letters: string;
+  }
+  email: {
+    required: string;
+    email: string;
+  },
+  message: {
+    required: string;
+    minLength: string;
+    maxLength: string;
+  }
+}
 
 export interface Languages {
   navBar: NavBar;
   hero: Hero;
   whoIAm: WhoIAm;
   form: Form;
+  validations: Validation
 }
 
 export interface RootStore {
@@ -50,7 +68,7 @@ export interface BaseInput {
   type: string;
   class: string;
   modelValue: string;
-  error:string;
+  error:string | undefined;
 }
 
 export interface TextArea {
@@ -59,5 +77,5 @@ export interface TextArea {
   placeholder: string;
   class: string;
   modelValue: string;
-  error:string;
+  error:string | undefined;
 }
