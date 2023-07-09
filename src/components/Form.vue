@@ -32,7 +32,7 @@ const { value: message } = useField<string>("message");
         <div class="form-split">
             <div class="form-container">
                 <div class="left-form-container">
-                    <h2 class="subtitle">{{ form.title }}</h2>
+                    <h2 class="subtitle form">{{ form.title }}</h2>
                     <h3>{{ form.subtitle }}</h3>
                     <p>{{ form.description }}</p>
 
@@ -62,7 +62,7 @@ const { value: message } = useField<string>("message");
 
                         <legend>Write your message</legend>
                         <TextArea 
-                            class="input-form-container" 
+                            class="input-form-container message" 
                             :label="form.form.message"
                             :placeholder="form.form.messagePlaceholder" 
                             :name="form.form.message" 
@@ -82,10 +82,13 @@ const { value: message } = useField<string>("message");
 <style lang="scss" >
 @import "../style.scss";
 
-
+.subtitle.form {
+    margin-bottom: 10%;
+    margin-top: 0;
+}
 .form-split {
     display: block;
-    padding: 90px 0;
+    padding: 60px 0;
     width: 100%;
 }
 
@@ -94,6 +97,7 @@ const { value: message } = useField<string>("message");
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     max-width: 1440px;
+    height: fit-content;
     margin: 0 auto;
     padding: 0 60px;
 }
@@ -106,8 +110,8 @@ const { value: message } = useField<string>("message");
 
 .left-form-container h3 {
     font-family: "Montserrat-SemiBold";
-    font-size: 2.5rem;
-    width: 30rem;
+    font-size: 2.2rem;
+    width: 25rem;
     text-align: left;
 }
 
@@ -119,18 +123,17 @@ const { value: message } = useField<string>("message");
 }
 
 .right-form-container {
-    width: 60%;
-    height: 100%;
+    width: 75%;
+    height: fit-content;
     background-color: white;
     display: flex;
     flex-direction: column;
     box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.2);
     border-radius: 1rem;
-    justify-content: space-between;
     padding: 2rem;
-    align-items: center;
-    justify-self: center;
+    justify-self: end;
 }
+
 
 .right-form-container input {
     padding-left: 1rem;
@@ -144,6 +147,7 @@ const { value: message } = useField<string>("message");
 .right-form-container button {
     width: 10rem;
     margin: 0 auto;
+    margin-top: 10%;
     background-color: white;
     padding: .2rem;
     border-radius: .3rem;
@@ -175,9 +179,9 @@ const { value: message } = useField<string>("message");
 .input-form-container {
     display: flex;
     flex-direction: column;
-    text-align: left;
-    gap: 2rem;
+    gap: 1.5rem;
     width: 100%;
+    margin-bottom: 5%;
 }
 
 .input-form-container label {
@@ -199,20 +203,29 @@ const { value: message } = useField<string>("message");
     width: calc(100% - 1rem);
 }
 
+.input-form-container.message {
+    margin: 0;
+}
+
 fieldset {
     margin: 0;
     border: 0;
     padding: 0;
+    width: 100%;
+    height: fit-content;
 }
+
 
 legend {
     display: none;
 }
 
 .right-form-container p {
-    font-family: "Montserrat-SemiBold";
+    font-family: "Montserrat-Light";
     font-size: .95rem;
     color: #6F4AE7;
-    margin-top: 0;
+    margin: 0;
+    text-align: center;
+    align-self: center;
 }
 </style>

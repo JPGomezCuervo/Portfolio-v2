@@ -33,7 +33,7 @@ const { hero } = toRefs(selectLanguages());
 
 .split {
     display: block;
-    padding: 90px 0;
+    padding: 60px 0;
     width: 100%;
 }
 
