@@ -21,9 +21,9 @@ const submit = handleSubmit(() => {
     console.log("Form submitted", name.value, email.value, message.value);
 })
 
-const { value: name } = useField("name");
-const { value: email } = useField("email");
-const { value: message } = useField("message");
+const { value: name } = useField<string>("name");
+const { value: email } = useField<string>("email");
+const { value: message } = useField<string>("message");
 
 </script>
 
@@ -40,19 +40,33 @@ const { value: message } = useField("message");
                 <form class="right-form-container" @submit="submit">
                     <fieldset>
                         <legend>Personal information</legend>
-                        <BaseInput class="input-form-container" :label="form.form.name"
-                            :placeholder="form.form.namePlaceholder" type="text" :name="form.form.name" v-model="name"
+                        <BaseInput 
+                            class="input-form-container" 
+                            :label="form.form.name"
+                            :placeholder="form.form.namePlaceholder" 
+                            type="text" 
+                            :name="form.form.name" 
+                            v-model:modelValue="name"
                             :error="errors.name" />
-                        <BaseInput class="input-form-container" :label="form.form.email"
-                            :placeholder="form.form.emailPlaceholder" type="email" :name="form.form.email" v-model="email"
+                        <BaseInput 
+                            class="input-form-container" 
+                            :label="form.form.email"
+                            :placeholder="form.form.emailPlaceholder" 
+                            type="email" 
+                            :name="form.form.email" 
+                            v-model:modelValue="email"
                             :error="errors.email" />
                     </fieldset>
 
                     <fieldset>
 
                         <legend>Write your message</legend>
-                        <TextArea class="input-form-container" :label="form.form.message"
-                            :placeholder="form.form.messagePlaceholder" :name="form.form.message" v-model="message"
+                        <TextArea 
+                            class="input-form-container" 
+                            :label="form.form.message"
+                            :placeholder="form.form.messagePlaceholder" 
+                            :name="form.form.message" 
+                            v-model:modelValue="message"
                             :error="errors.message" />
                     </fieldset>
 
