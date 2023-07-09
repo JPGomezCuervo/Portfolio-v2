@@ -1,0 +1,14 @@
+{
+    "title": "Contact me",
+    "subtitle": "Got a project to develop?",
+    "description": "Get your space suit ready and tell me your ideas to develop your dream application.",
+    "form": {
+        "name": "Name",
+        "namePlaceholder": "John Doe",
+        "email": "Email",
+        "emailPlaceholder": "johndoe@gmail.com",
+        "message": "Message",
+        "messagePlaceholder": "Your message...",
+        "button": "Send email"
+    }
+}

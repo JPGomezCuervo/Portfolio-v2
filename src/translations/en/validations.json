@@ -1,0 +1,17 @@
+{
+  "name": {
+    "required": "Name is required!",
+    "minLength": "Name must be at least 3 characters long!",
+    "maxLength": "Name must be less than 10 characters long!",
+    "letters": "Name must contain only letters!"
+  },
+  "email": {
+    "required": "Email is required!",
+    "email": "Email must be a valid email address!"
+  },
+  "message": {
+    "required": "Message is required!",
+    "minLength": "Message must be at least 25 characters long!",
+    "maxLength": "Message must be less than 100 characters long!"
+  }
+}

@@ -1,0 +1,14 @@
+{
+    "title": "Contáctame",
+    "subtitle": "¿Tienes algun proyecto?",
+    "description": "Prepara tu traje espacial y cuéntame tus ideas para desarrollar la aplicación de tus sueños.",
+    "form": {
+        "name": "Nombre",
+        "namePlaceholder": "Juan Pablo",
+        "email": "Correo Electrónico",
+        "emailPlaceholder": "johndoe@gmail.com",
+        "message": "Mensaje",
+        "messagePlaceholder": "Tu mensaje...",
+        "button": "Enviar correo"
+    }
+}
