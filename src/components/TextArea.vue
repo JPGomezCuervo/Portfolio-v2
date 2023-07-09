@@ -17,6 +17,7 @@ const props = defineProps<TextArea>();
             :name="props.name"
             :placeholder="props.placeholder"
             :value="props.modelValue"
+            :id="props.name"
             @input="$emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)"
             >
             

@@ -15,6 +15,7 @@ const props = defineProps<BaseInput>();
             :type="props.type" 
             :name="props.name" 
             :value="props.modelValue"
+            :id="props.name"
             @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
             />
     </div>
