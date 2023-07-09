@@ -28,32 +28,43 @@ const onSubmit = (event: Event) => {
 
                 </div>
                 <form class="right-form-container" @submit.prevent="onSubmit">
-                    <BaseInput
-                        class="input-form-container"
-                        :label="form.form.name"
-                        :placeholder="form.form.namePlaceholder"
-                        type="text"
-                        :name="form.form.name"
-                        v-model:modelValue="name"
-                    />
-                    <BaseInput
-                        class="input-form-container"
-                        :label="form.form.email"
-                        :placeholder="form.form.emailPlaceholder"
-                        type="email"
-                        :name="form.form.email"
-                        v-model:modelValue="email"
-                    />
+                    <fieldset>
+                        <legend>Personal information</legend>
+                        <BaseInput
+                            class="input-form-container"
+                            :label="form.form.name"
+                            :placeholder="form.form.namePlaceholder"
+                            type="text"
+                            :name="form.form.name"
+                            v-model:modelValue="name"
+                            error=""
+                        />
+                        <BaseInput
+                            class="input-form-container"
+                            :label="form.form.email"
+                            :placeholder="form.form.emailPlaceholder"
+                            type="email"
+                            :name="form.form.email"
+                            v-model:modelValue="email"
+                            error=""
+                        />
+                    </fieldset>
 
-                    <TextArea
-                    class="input-form-container"
-                    :label="form.form.message"
-                    :placeholder="form.form.messagePlaceholder"
-                    :name="form.form.message"
-                    v-model:modelValue="message"
-                    />
+                    <fieldset>
 
-                    <button>{{ form.form.button }}</button>
+                        <legend>Write your message</legend>
+                        <TextArea
+                        class="input-form-container"
+                        :label="form.form.message"
+                        :placeholder="form.form.messagePlaceholder"
+                        :name="form.form.message"
+                        v-model:modelValue="message"
+                        error=""
+                        />
+                    </fieldset>
+
+
+                    <button type="submit">{{ form.form.button }}</button>
 
                 </form>
             </div>
@@ -179,12 +190,22 @@ const onSubmit = (event: Event) => {
     width: calc(100% - 1rem);
 }
 
-// .right-form-container p {
-//     font-family: "Montserrat-Regular";
-//     font-size: .95rem;
-//     color: #6F4AE7;
-//     margin-top: 0;
-// }
+fieldset {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+legend {
+    display: none;
+}
+
+.right-form-container p {
+    font-family: "Montserrat-SemiBold";
+    font-size: .95rem;
+    color: #6F4AE7;
+    margin-top: 0;
+}
 
 
 </style>
