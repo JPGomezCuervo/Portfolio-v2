@@ -42,3 +42,12 @@ export interface RootStore {
   languages : Languages;
   toggleLanguage: () => void;
 }
+
+export interface BaseInput {
+  label: string;
+  name: string;
+  placeholder: string;
+  type: string;
+  class: string;
+  modelValue: string;
+}
