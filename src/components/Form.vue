@@ -228,4 +228,55 @@ legend {
     text-align: center;
     align-self: center;
 }
+
+@media (max-width: 1000px) {
+
+    .form-split {
+        padding: 0;
+    }
+    .form-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 65% 1fr;
+        padding: 0 40px;
+        margin: 0;
+    }
+    .left-form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .subtitle.form {
+        width: fit-content;
+        margin-bottom: 4%;
+        margin-top: 2%;
+        text-align: center;
+    }
+
+    .left-form-container h3 {
+        width: fit-content;
+        margin: 0 auto;
+        text-align: center;
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
+    }
+
+    .left-form-container p {
+        width: 80%;
+        text-align: center;
+    }
+
+    .right-form-container {
+        justify-self: center;
+
+    }
+}
+
+@media (max-width: 550px) {
+    .left-form-container p {
+        // font-size: .8rem;
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        width: 100%;
+    }
+}
 </style>

@@ -88,7 +88,6 @@ const { hero } = toRefs(selectLanguages());
     .grid-container {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
-        padding: 0;
         margin: 0;
         padding: 0 20px;
     }
