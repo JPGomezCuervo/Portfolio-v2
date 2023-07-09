@@ -18,10 +18,12 @@ const props = defineProps<TextArea>();
             :placeholder="props.placeholder"
             :value="props.modelValue"
             :id="props.name"
+            :aria-describedby=" error ? `${props.name}-error` : undefined"
+            aria-live="assertive"
             @input="$emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)"
             >
         </textarea>
-        <p v-if="props.error">
+        <p v-if="props.error" :id="`${props.name}-error`">
             {{ props.error }}
         </p>
 
