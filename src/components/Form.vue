@@ -1,35 +1,57 @@
 <script setup lang="ts">
-import { toRefs } from "vue";
+import { toRefs, ref } from "vue";
 import { selectLanguages } from "../store";
+import BaseInput from "./BaseInput.vue";
+import TextArea from "./TextArea.vue";
 
 const { form } = toRefs(selectLanguages());
+const name = ref("");
+const email = ref("");
+const message = ref("");
+
+const onSubmit = (event: Event) => {
+    event.preventDefault();
+    
+};
+
+
 </script>
 
 <template>
     <section class="background">
-        <div class="split">
-            <div class="container">
-                <div class="left-container">
+        <div class="form-split">
+            <div class="form-container">
+                <div class="left-form-container">
                     <h2 class="subtitle">{{ form.title }}</h2>
                     <h3>{{ form.subtitle }}</h3>
                     <p>{{ form.description }}</p>
 
                 </div>
-                <form class="right-container">
-                    <div class="input-container">
-                        <label htmlFor="nameInput">{{ form.form.name }}</label>
-                        <input type="text" name="nameInput" :placeholder="form.form.namePlaceholder"/>
-                    </div>
+                <form class="right-form-container" @submit.prevent="onSubmit">
+                    <BaseInput
+                        class="input-form-container"
+                        :label="form.form.name"
+                        :placeholder="form.form.namePlaceholder"
+                        type="text"
+                        :name="form.form.name"
+                        v-model:modelValue="name"
+                    />
+                    <BaseInput
+                        class="input-form-container"
+                        :label="form.form.email"
+                        :placeholder="form.form.emailPlaceholder"
+                        type="email"
+                        :name="form.form.email"
+                        v-model:modelValue="email"
+                    />
 
-                    <div class="input-container">
-                        <label htmlFor="emailInput">{{ form.form.email }}</label>
-                        <input type="text" name="emailInput" :placeholder="form.form.emailPlaceholder"/>
-                    </div>
-
-                    <div class="input-container">
-                        <label htmlFor="messageInput">{{ form.form.message }}</label>
-                        <textarea name="messageInput" :placeholder="form.form.message"></textarea>
-                    </div>
+                    <TextArea
+                    class="input-form-container"
+                    :label="form.form.message"
+                    :placeholder="form.form.messagePlaceholder"
+                    :name="form.form.message"
+                    v-model:modelValue="message"
+                    />
 
                     <button>{{ form.form.button }}</button>
 
@@ -40,16 +62,16 @@ const { form } = toRefs(selectLanguages());
 
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @import "../style.scss";
 
 
-.split {
+.form-split {
     display: block;
     padding: 90px 0;
     width: 100%;
 }
-.container {
+.form-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
@@ -57,21 +79,27 @@ const { form } = toRefs(selectLanguages());
     margin: 0 auto;
     padding: 0 60px;
 }
-.left-container {
+.left-form-container {
     color: white;
     width: 100%;
     height: 100%;
 }
 
-.left-container h3 {
+.left-form-container h3 {
     font-family: "Montserrat-SemiBold";
+    font-size: 2.5rem;
+    width: 30rem;
+    text-align: left;
 }
 
-.left-container p {
+.left-form-container p {
     font-family: "Montserrat-Light";
+    font-size: 1.5rem;
+    text-align: left;
+    width: 28rem;
 }
 
-.right-container {
+.right-form-container {
     width: 60%;
     height: 100%;
     background-color: white;
@@ -80,12 +108,12 @@ const { form } = toRefs(selectLanguages());
     box-shadow: 0px 9px 15px rgba(0, 0, 0, 0.2);
     border-radius: 1rem;
     justify-content: space-between;
-    align-items: center;
     padding: 2rem;
+    align-items: center;
     justify-self: center;
 }
 
-.right-container input {
+.right-form-container input {
     padding-left: 1rem;
     border-radius: .6rem;
     border: 0;
@@ -94,7 +122,7 @@ const { form } = toRefs(selectLanguages());
 
 }
 
-.right-container button {
+.right-form-container button {
     width: 10rem;
     margin: 0 auto;
     background-color: white;
@@ -108,23 +136,23 @@ const { form } = toRefs(selectLanguages());
     cursor: pointer;
 }
 
-.right-container button:hover {
+.right-form-container button:hover {
     background-color: #6F4AE7;
     color: white;
 }
-.right-container button:active {
+.right-form-container button:active {
     background-color:white;
     color:#6F4AE7;
 }
 
-.right-container button[disabled] {
+.right-form-container button[disabled] {
     background-color: white;
     border: 2px solid #979595;
     color: #878787;
     cursor: not-allowed;
 }
 
-.input-container  {
+.input-form-container  {
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -132,17 +160,17 @@ const { form } = toRefs(selectLanguages());
     width: 100%;
 }
 
-.input-container label {
+.input-form-container label {
     font-family: "Montserrat-Bold";
     font-size: .9rem;
 }
 
-.input-container input {
+.input-form-container input {
     font-family: "Montserrat-Regular";
     height: 2.2rem;
 }
 
-.input-container  textarea {
+.input-form-container  textarea {
     padding: .2rem;
     padding-left: 1rem;
     border-radius: .6rem;
@@ -151,7 +179,7 @@ const { form } = toRefs(selectLanguages());
     width: calc(100% - 1rem);
 }
 
-// .right-container p {
+// .right-form-container p {
 //     font-family: "Montserrat-Regular";
 //     font-size: .95rem;
 //     color: #6F4AE7;
