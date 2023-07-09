@@ -1,19 +1,29 @@
 <script setup lang="ts">
-import { toRefs, ref } from "vue";
-import { selectLanguages } from "../store";
-import BaseInput from "./BaseInput.vue";
 import TextArea from "./TextArea.vue";
+import BaseInput from "./BaseInput.vue";
+import { toRefs } from "vue";
+import { selectLanguages } from "../store";
+import { useForm, useField } from "vee-validate";
+import validations from "../helpers/validations";
 
 const { form } = toRefs(selectLanguages());
-const name = ref("");
-const email = ref("");
-const message = ref("");
 
-const onSubmit = (event: Event) => {
-    event.preventDefault();
-    
-};
+const { handleSubmit, errors } = useForm({
+    validationSchema: validations,
+    initialValues: {
+        name: "",
+        email: "",
+        message: ""
+    }
+})
 
+const submit = handleSubmit(() => {
+    console.log("Form submitted", name.value, email.value, message.value);
+})
+
+const { value: name } = useField("name");
+const { value: email } = useField("email");
+const { value: message } = useField("message");
 
 </script>
 
@@ -27,40 +37,23 @@ const onSubmit = (event: Event) => {
                     <p>{{ form.description }}</p>
 
                 </div>
-                <form class="right-form-container" @submit.prevent="onSubmit">
+                <form class="right-form-container" @submit="submit">
                     <fieldset>
                         <legend>Personal information</legend>
-                        <BaseInput
-                            class="input-form-container"
-                            :label="form.form.name"
-                            :placeholder="form.form.namePlaceholder"
-                            type="text"
-                            :name="form.form.name"
-                            v-model:modelValue="name"
-                            error=""
-                        />
-                        <BaseInput
-                            class="input-form-container"
-                            :label="form.form.email"
-                            :placeholder="form.form.emailPlaceholder"
-                            type="email"
-                            :name="form.form.email"
-                            v-model:modelValue="email"
-                            error=""
-                        />
+                        <BaseInput class="input-form-container" :label="form.form.name"
+                            :placeholder="form.form.namePlaceholder" type="text" :name="form.form.name" v-model="name"
+                            :error="errors.name" />
+                        <BaseInput class="input-form-container" :label="form.form.email"
+                            :placeholder="form.form.emailPlaceholder" type="email" :name="form.form.email" v-model="email"
+                            :error="errors.email" />
                     </fieldset>
 
                     <fieldset>
 
                         <legend>Write your message</legend>
-                        <TextArea
-                        class="input-form-container"
-                        :label="form.form.message"
-                        :placeholder="form.form.messagePlaceholder"
-                        :name="form.form.message"
-                        v-model:modelValue="message"
-                        error=""
-                        />
+                        <TextArea class="input-form-container" :label="form.form.message"
+                            :placeholder="form.form.messagePlaceholder" :name="form.form.message" v-model="message"
+                            :error="errors.message" />
                     </fieldset>
 
 
@@ -70,7 +63,6 @@ const onSubmit = (event: Event) => {
             </div>
         </div>
     </section>
-
 </template>
 
 <style lang="scss" >
@@ -82,6 +74,7 @@ const onSubmit = (event: Event) => {
     padding: 90px 0;
     width: 100%;
 }
+
 .form-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -90,6 +83,7 @@ const onSubmit = (event: Event) => {
     margin: 0 auto;
     padding: 0 60px;
 }
+
 .left-form-container {
     color: white;
     width: 100%;
@@ -151,9 +145,10 @@ const onSubmit = (event: Event) => {
     background-color: #6F4AE7;
     color: white;
 }
+
 .right-form-container button:active {
-    background-color:white;
-    color:#6F4AE7;
+    background-color: white;
+    color: #6F4AE7;
 }
 
 .right-form-container button[disabled] {
@@ -163,7 +158,7 @@ const onSubmit = (event: Event) => {
     cursor: not-allowed;
 }
 
-.input-form-container  {
+.input-form-container {
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -181,7 +176,7 @@ const onSubmit = (event: Event) => {
     height: 2.2rem;
 }
 
-.input-form-container  textarea {
+.input-form-container textarea {
     padding: .2rem;
     padding-left: 1rem;
     border-radius: .6rem;
@@ -206,6 +201,4 @@ legend {
     color: #6F4AE7;
     margin-top: 0;
 }
-
-
 </style>
