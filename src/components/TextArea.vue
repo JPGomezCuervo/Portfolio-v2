@@ -6,7 +6,7 @@ const props = defineProps<TextArea>();
 </script>
 
 <template>
-    <div :class="props.class">
+    <div v-bind:class="props.class">
         <label 
             v-bind:for="props.name">
             {{ props.label }}
@@ -20,9 +20,10 @@ const props = defineProps<TextArea>();
             :id="props.name"
             @input="$emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)"
             >
-            
-
         </textarea>
+        <p v-if="props.error">
+            {{ props.error }}
+        </p>
 
     </div>
 
