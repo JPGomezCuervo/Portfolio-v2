@@ -233,6 +233,7 @@ legend {
 
     .form-split {
         padding: 0;
+        padding-bottom: 5%;
     }
     .form-container {
         grid-template-columns: 1fr;

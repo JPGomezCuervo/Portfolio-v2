@@ -125,4 +125,36 @@ const { footer } = toRefs(selectLanguages());
 h2 {
     text-align: center;
 }
+
+@media (max-width: 1000px) {
+    
+.footer .logos-container {
+    display: flex;
+    justify-content: center;
+}
+
+.footer  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content:center ;
+}
+
+.footer  .container h3 {
+    margin: 0;
+    margin-top: 1.5rem;
+
+}
+
+.footer  .container ul {
+    padding-left: 0;
+}
+
+.open-to-work {
+    display: initial;
+}
+
+.footer .container h2 {
+    display: none;
+}
+}
 </style>
