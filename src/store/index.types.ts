@@ -47,12 +47,21 @@ export interface Validation {
   }
 }
 
+export interface Footer {
+  navigation: string;
+  projects: string;
+  contactMe: string;
+  whoIAm: string;
+  socialMedia: string;
+}
+
 export interface Languages {
   navBar: NavBar;
   hero: Hero;
   whoIAm: WhoIAm;
   form: Form;
-  validations: Validation
+  validations: Validation;
+  footer: Footer;
 }
 
 export interface RootStore {
