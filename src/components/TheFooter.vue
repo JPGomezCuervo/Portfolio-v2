@@ -82,6 +82,7 @@ const { footer } = toRefs(selectLanguages());
 
 .footer ul {
     font-family: "Montserrat-Regular";
+    text-align: center;
     font-size: .9rem;
     padding: 0;
 }
@@ -136,7 +137,7 @@ h2 {
 .footer  .container {
     display: flex;
     flex-direction: column;
-    justify-content:center ;
+    align-items: center;
 }
 
 .footer  .container h3 {
