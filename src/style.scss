@@ -57,6 +57,16 @@ h1 {
   font-family: "Montserrat-ExtraBold";
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  cursor: pointer;
+}
+
 .subtitle {
   font-family: "Montserrat-Bold";
   text-align: left;
