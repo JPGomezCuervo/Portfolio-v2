@@ -33,7 +33,7 @@ const { hero } = toRefs(selectLanguages());
 
 .split {
     display: block;
-    padding: 60px 0;
+    padding: 25px 0;
     width: 100%;
 }
 
@@ -53,30 +53,34 @@ const { hero } = toRefs(selectLanguages());
     justify-content: center;
     width: 100%;
     color: white;
+    padding-left: 10%;
 }
 
 
 .left-container h1 {
     text-align: left;
-    font-size: clamp(2rem, 2rem + 4vw, 8rem);
+    font-size: clamp(2rem, 2rem + 4vw, 7rem);
     width: 20%;
     margin: 0;
 }
 
 .left-container h3 {
     font-family: "Montserrat-semiBold";
-    font-size: clamp(1rem, 1rem + 2vw, 3rem);
-    // width: clamp()
-    width: 30rem;
+    font-size: clamp(1rem, 1rem + 1vw, 3rem);
+    // width: 30rem;
+    width: clamp(15rem, 1rem + 26vw, 40rem);
 }
 
 .right-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
 #photo {
-    width: 100%;
-    height: 100%;
+    width: 75%;
+    max-width: 500px;
     object-fit: cover;
     border-radius: 100%;
     transform: scale(.85);
@@ -96,6 +100,7 @@ const { hero } = toRefs(selectLanguages());
         align-items: center;
         grid-row: 2;
         width: 100%;
+        padding: 0;
     }
 
     .left-container h1,
@@ -113,8 +118,7 @@ const { hero } = toRefs(selectLanguages());
         justify-content: center;
     }
     #photo {
-        // max-width: 200px;
-        // width: 500px;
+        height: 100%;
         width: clamp(150px, 30px + 50vw, 500px);
         // width: 150px;
     }
