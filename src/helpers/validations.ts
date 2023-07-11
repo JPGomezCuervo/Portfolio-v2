@@ -1,6 +1,6 @@
 import { selectLanguages } from "../store";
 
-const { email, message, name} = selectLanguages().validations;
+const { email, message, name} = selectLanguages().validations.value;
 
 const validations = {
     name: (value: string) => {
