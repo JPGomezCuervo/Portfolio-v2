@@ -236,7 +236,7 @@ legend {
     }
     .form-container {
         grid-template-columns: 1fr;
-        grid-template-rows: 65% 1fr;
+        grid-template-rows: 1fr 1fr;
         padding: 0 40px;
         margin: 0;
     }
@@ -264,6 +264,7 @@ legend {
     .left-form-container p {
         width: 80%;
         text-align: center;
+        margin-bottom: 0;
     }
 
     .right-form-container {
