@@ -191,4 +191,13 @@ const {  projects } = selectLanguages();
         font-size: 2.5rem;
     }
 
+    @media screen and (max-width: 1000px) {
+    .main-container > h2 {
+        font-size: 2.5rem;
+        margin-right: 0;
+        padding-left: 0;
+        text-align: center;
+    }
+}
+
 </style>
