@@ -3,9 +3,7 @@ import manIcon from "../assets/icons/projects/man-silhouette.png";
 import dumbbellIcon from "../assets/icons/projects/dumbbell.png";
 import pawIcon from "../assets/icons/projects/paw_logo_icon.png";
 import { selectLanguages } from "../store";
-import { toRefs } from "vue";
-import { Route } from "vue-router";
-import ProjectDetails from "../views/ProjectDetails.vue";
+import { RouterLink } from "vue-router";
 
 const {  projects } = selectLanguages();
 
@@ -19,13 +17,13 @@ const {  projects } = selectLanguages();
 <div class="lines-container">
 
 
-    <a to={"/detail/portfolio"}>
+    <router-link to="/projects/portfolio">
         <div class="portfolio">
             <h2> https:// Juan Gómez </h2>
         </div>
-    </a>
+    </router-link>
 
-    <Link to={"/detail/musclelab"}>
+    <router-link to="/projects/musclelab">
         <div class="muscle-lab">
             <div class="icon">
                 <img
@@ -45,9 +43,9 @@ const {  projects } = selectLanguages();
 
 
         </div>
-    </Link>
+    </router-link>
 
-    <Link to={"detail/doggofinder"}>
+    <router-link to="projects/doggofinder">
         <div class="doggo-finder">
             <div class="icon">
                 <img 
@@ -58,7 +56,7 @@ const {  projects } = selectLanguages();
             </div>
 
         </div>
-    </Link>
+    </router-link>
 
 </div>
 </div>

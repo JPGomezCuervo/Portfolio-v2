@@ -5,7 +5,8 @@ import linkedinIcon from "../assets/icons/linkedin.svg";
 import githubIcon from "../assets/icons/github.svg";
 import url from "../helpers/constants.json";
 import hamburguerIcon from "../assets/icons/icons8-menu.svg";
-import { computed, toRefs, ref, onMounted, onBeforeUnmount } from "vue";
+import { computed, ref, onMounted, onBeforeUnmount } from "vue";
+import { RouterLink } from "vue-router";
 import { selectActiveLanguage, selectLanguages, setLanguage } from "../store/index.ts";
 
 //Implement the language toggle
