@@ -6,7 +6,7 @@ import { selectLanguages } from "../store";
 import { useForm, useField } from "vee-validate";
 import validations from "../helpers/validations";
 
-const { form } = toRefs(selectLanguages());
+const { form } = selectLanguages();
 
 const { handleSubmit, errors } = useForm({
     validationSchema: validations,

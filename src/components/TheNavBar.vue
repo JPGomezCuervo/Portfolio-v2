@@ -5,7 +5,8 @@ import linkedinIcon from "../assets/icons/linkedin.svg";
 import githubIcon from "../assets/icons/github.svg";
 import url from "../helpers/constants.json";
 import hamburguerIcon from "../assets/icons/icons8-menu.svg";
-import { computed, toRefs, ref, onMounted, onBeforeUnmount } from "vue";
+import { computed, ref, onMounted, onBeforeUnmount } from "vue";
+import { RouterLink } from "vue-router";
 import { selectActiveLanguage, selectLanguages, setLanguage } from "../store/index.ts";
 
 //Implement the language toggle
@@ -44,7 +45,7 @@ onBeforeUnmount(() => {
     window.removeEventListener("scroll", handleScroll);
 });
 
-const { navBar } = toRefs(selectLanguages());
+const { navBar } = selectLanguages();
 
 </script>
 
@@ -56,7 +57,7 @@ const { navBar } = toRefs(selectLanguages());
         <ul class="options-container">
 
             <li>
-                <a href=""> {{ navBar.whoIAm }} </a>
+                <router-link to="/projects"> {{ navBar.whoIAm }} </router-link>
             </li>
 
             <li>

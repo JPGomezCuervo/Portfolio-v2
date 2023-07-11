@@ -1,4 +1,4 @@
-import { ref, Ref } from "vue";
+import { ref, Ref, toRefs } from "vue";
 import en_navbar from "../translations/en/navbar.json";
 import es_navbar from "../translations/es/navbar.json";
 import en_hero from "../translations/en/hero.json";
@@ -11,6 +11,8 @@ import es_validations from "../translations/es/validations.json";
 import en_validations from "../translations/en/validations.json";
 import en_footer from "../translations/en/footer.json";
 import es_footer from "../translations/es/footer.json";
+import es_projects from "../translations/es/projects.json";
+import en_projects from "../translations/en/projects.json";
 import { RootStore } from "./index.types";
 
 
@@ -23,7 +25,8 @@ const store: Ref<RootStore> = ref({
     whoIAm: en_whoIAm,
     form: en_form,
     validations: en_validations,
-    footer: en_footer
+    footer: en_footer,
+    projects: en_projects
   },
   toggleLanguage
 });
@@ -42,7 +45,8 @@ function toggleLanguage () {
       whoIAm: en_whoIAm,
       form: en_form,
       validations: en_validations,
-      footer: en_footer
+      footer: en_footer,
+      projects: en_projects
     });
   } else {
     Object.assign(languages, {
@@ -51,7 +55,8 @@ function toggleLanguage () {
       whoIAm: es_whoIAm,
       form: es_form,
       validations: es_validations,
-      footer: es_footer
+      footer: es_footer,
+      projects: es_projects
     });
   }
 };
@@ -59,7 +64,7 @@ function toggleLanguage () {
 //selectors
 
 export const selectActiveLanguage = () => store.value.activeLanguage;
-export const selectLanguages = () => store.value.languages;
+export const selectLanguages = () => toRefs(store.value.languages);
 export const setLanguage = () => store.value.toggleLanguage();
 
 export default store;
