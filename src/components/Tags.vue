@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ProjectsName } from '../store/index.types';
 const props = defineProps<{
     tags?: string[];
-    style:ProjectsName;
+    style: "back" | "front";
 }>();
 
 const type = (props.style === "back") ? "back" : "front";
