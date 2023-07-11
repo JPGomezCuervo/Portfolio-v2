@@ -7,7 +7,7 @@ import { toRefs } from "vue";
 import { Route } from "vue-router";
 import ProjectDetails from "../views/ProjectDetails.vue";
 
-const {  projects } = toRefs(selectLanguages());
+const {  projects } = selectLanguages();
 
 </script>
 

@@ -3,6 +3,7 @@
 import NavBar from "./components/TheNavBar.vue";
 import Home from "./views/Home.vue";
 import Footer from "./components/TheFooter.vue";
+
 </script>
 
 <template>

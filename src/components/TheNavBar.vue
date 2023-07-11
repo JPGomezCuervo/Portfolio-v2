@@ -44,7 +44,7 @@ onBeforeUnmount(() => {
     window.removeEventListener("scroll", handleScroll);
 });
 
-const { navBar } = toRefs(selectLanguages());
+const { navBar } = selectLanguages();
 
 </script>
 
@@ -56,7 +56,7 @@ const { navBar } = toRefs(selectLanguages());
         <ul class="options-container">
 
             <li>
-                <a href=""> {{ navBar.whoIAm }} </a>
+                <router-link to="/projects"> {{ navBar.whoIAm }} </router-link>
             </li>
 
             <li>

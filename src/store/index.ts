@@ -1,4 +1,4 @@
-import { ref, Ref } from "vue";
+import { ref, Ref, toRefs } from "vue";
 import en_navbar from "../translations/en/navbar.json";
 import es_navbar from "../translations/es/navbar.json";
 import en_hero from "../translations/en/hero.json";
@@ -64,7 +64,7 @@ function toggleLanguage () {
 //selectors
 
 export const selectActiveLanguage = () => store.value.activeLanguage;
-export const selectLanguages = () => store.value.languages;
+export const selectLanguages = () => toRefs(store.value.languages);
 export const setLanguage = () => store.value.toggleLanguage();
 
 export default store;

@@ -4,10 +4,9 @@ import linkedinIcon from "../assets/icons/linkedin.svg";
 import githubIcon from "../assets/icons/github.svg";
 import url from "../helpers/constants.json";
 import { selectLanguages } from "../store";
-import { toRefs } from "vue";
 
 
-const { footer } = toRefs(selectLanguages());
+const { footer } = selectLanguages();
 
 </script>
 

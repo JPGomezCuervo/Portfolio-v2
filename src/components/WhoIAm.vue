@@ -3,7 +3,7 @@ import image from "../assets/images/whoIAm/firstView/crayon-online-conversation.
 import { toRefs } from "vue";
 import { selectLanguages } from "../store";
 
-const { whoIAm }= toRefs(selectLanguages());
+const { whoIAm }= selectLanguages();
 
 </script>
 
