@@ -55,6 +55,10 @@ export interface Footer {
   socialMedia: string;
 }
 
+export interface Projects {
+  title: string;
+}
+
 export interface Languages {
   navBar: NavBar;
   hero: Hero;
@@ -62,6 +66,7 @@ export interface Languages {
   form: Form;
   validations: Validation;
   footer: Footer;
+  projects: Projects;
 }
 
 export interface RootStore {
