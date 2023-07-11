@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import image from "../assets/images/whoIAm/firstView/crayon-online-conversation.png";
-import { toRefs } from "vue";
 import { selectLanguages } from "../store";
 
 const { whoIAm }= selectLanguages();
