@@ -115,3 +115,7 @@ export interface TextArea {
   modelValue: string;
   error:string | undefined;
 }
+
+//types
+
+export type ProjectsName = "portfolio" | "musclelab" | "doggofinder"; 
