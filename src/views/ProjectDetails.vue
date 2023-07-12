@@ -129,7 +129,6 @@ const isHovered = ref(false);
 
 .navegation {
     display: flex;
-    // margin-bottom: 1.5rem;
     cursor: pointer;
     align-items: center;
     padding: 0 60px;
@@ -164,7 +163,6 @@ const isHovered = ref(false);
 
 .buttons-container {
     display: flex;
-    // margin-top: 8%;
 }
 
 .primary-button {
@@ -253,12 +251,14 @@ const isHovered = ref(false);
     .grid {
         display: flex;
         flex-direction: column;
-        // grid-template-columns: 1fr;
-        // grid-auto-rows: auto;
     }
 
     .left p {
         text-align: justify;
+    }
+
+    .primary-button {
+        margin-right: auto;
     }
 }
 
