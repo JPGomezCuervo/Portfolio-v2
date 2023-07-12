@@ -59,6 +59,27 @@ export interface Projects {
   title: string;
 }
 
+interface DetailStructure {
+  date: string;
+  name: string;
+  description: string;
+  technologies: {
+    title: string;
+    frontEnd?: string[];
+    backEnd?: string[];
+  },
+  deploy: string;
+  sourceCode: string;
+}
+export interface Details {
+  goBack: string;
+  viewProject: string;
+  viewSourceCode: string;
+  portfolio: DetailStructure,
+  musclelab: DetailStructure,
+  doggofinder: DetailStructure
+}
+
 export interface Languages {
   navBar: NavBar;
   hero: Hero;
@@ -67,6 +88,7 @@ export interface Languages {
   validations: Validation;
   footer: Footer;
   projects: Projects;
+  details: Details;
 }
 
 export interface RootStore {
@@ -93,3 +115,7 @@ export interface TextArea {
   modelValue: string;
   error:string | undefined;
 }
+
+//types
+
+export type ProjectsName = "portfolio" | "musclelab" | "doggofinder"; 
