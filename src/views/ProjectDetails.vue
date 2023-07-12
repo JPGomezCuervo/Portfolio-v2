@@ -43,6 +43,7 @@ const isHovered = ref(false);
                         <img :src="eye" alt="" />
                         <button>{{ viewProject }}</button>
                     </div>
+                        
                     <button @mouseenter="isHovered = true" @mouseleave="isHovered = false" class="secondary-button">
                         <img v-if="!isHovered" :src="github" />
                         <img v-else :src="whiteGithub"/>
@@ -109,17 +110,17 @@ const isHovered = ref(false);
 .left {
     display: flex;
     flex-direction: column;
-    height: 100%;
     width: 100%;
+    height: fit-content;
+    flex: 1;
 }
 
 .left p {
     font-family: "Montserrat-Regular";
     font-size: 1.2rem;
     text-align: left;
-    width: 100%;
     margin: 0;
-    line-height: 1.4;
+    line-height: 1.4;   
 }
 
 #description {
@@ -243,4 +244,67 @@ const isHovered = ref(false);
     font-family: "Montserrat-SemiBold";
     font-size: 2rem;
 }
+
+@media (max-width: 1000px) {
+    .right {
+        display: none;
+    }
+
+    .grid {
+        display: flex;
+        flex-direction: column;
+        // grid-template-columns: 1fr;
+        // grid-auto-rows: auto;
+    }
+
+    .left p {
+        text-align: justify;
+    }
+}
+
+@media (max-width: 550px) {
+    .grid {
+        margin: 0;
+        padding: 0 10px;
+    }
+
+    .navegation {
+        padding: 0 10px;
+    }
+
+    .left p {
+        font-size: 1rem;
+        word-spacing: -.08rem;
+        line-height: 1.5rem;
+
+    }
+    .buttons-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .primary-button {
+        margin: 0;
+        width: 96%;
+    }
+    .primary-button button {
+        margin: 0;
+        margin-right: auto;
+
+    }
+
+    .primary-button img {
+        margin-left: auto;
+    }
+    .secondary-button {
+        display: flex;
+        padding-right: auto;
+        width: 100%;
+        justify-content: center;
+
+    }
+
+}
+
 </style>
