@@ -15,7 +15,7 @@ const { goBack, viewProject, viewSourceCode } = selectLanguages().details.value;
 
 const params = useRoute().params.name as ProjectsName;
 
-const { date, deploy, description, name, sourceCode, technologies } = selectLanguages().details.value[params];
+const { date, description, name, technologies } = selectLanguages().details.value[params];
 
 const isHovered = ref(false);
 
