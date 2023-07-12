@@ -9,6 +9,7 @@ import { selectLanguages } from '../store';
 import { useRoute } from "vue-router";
 import { ProjectsName } from "../store/index.types";
 import { ref } from "vue";
+import Preview from '../components/Preview.vue';
     
 const { goBack, viewProject, viewSourceCode } = selectLanguages().details.value;
 
@@ -72,6 +73,7 @@ const isHovered = ref(false);
             </div>
         </div>
 
+        <Preview :name="params"/>
 
     </div>
 </template>
