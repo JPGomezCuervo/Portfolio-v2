@@ -11,12 +11,12 @@ const type = (props.kind === "back") ? "back" : "front";
 
 <template>
     <div class="lolis">
-        <span v-for="tag in props.tags" :class="`${type} tag-container`">{{ tag }}</span>
+        <span v-for="(tag, index) in props.tags" :key="index" :class="`${type} tag-container`">{{ tag }}</span>
     </div>
 
 </template>
 
-<style>
+<style scoped>
     .lolis {
         display: flex;
         flex-wrap: wrap;
