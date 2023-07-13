@@ -78,7 +78,7 @@ const {  projects } = selectLanguages();
         font-size:3.5rem;
         font-weight: 200;
         margin-right: 10rem;
-        padding-left: 6rem;
+        padding-left: 3rem;
         text-align: left;
         margin-top: .9rem;
     }
@@ -115,7 +115,6 @@ const {  projects } = selectLanguages();
         height: 10rem;
         width: 100%;
         display: flex;
-        align-items: center;
         justify-content: center;
         cursor: pointer;
         transition: .5s;
@@ -131,8 +130,10 @@ const {  projects } = selectLanguages();
 
     .muscle-lab:hover {
         height: 15rem;
+        padding-top: 5%;
 
     }
+
 
     .muscle-lab h2{
         font-family: 'Montserrat-Bold';
@@ -146,7 +147,7 @@ const {  projects } = selectLanguages();
         height: 8rem;
         width: 8rem;
         top:4%;
-        left: -2%;
+        left: -22%;
 
     }
 
@@ -177,7 +178,7 @@ const {  projects } = selectLanguages();
     .doggo-finder img {
         height: 7.5rem;
         transform: rotate(-90deg);
-        left: 0;
+        margin-right: 5rem;
         
     }
     .doggo-finder h2 {
@@ -185,8 +186,8 @@ const {  projects } = selectLanguages();
         color: #462f2f;
         font-family: 'Montserrat-ExtraBold';
         align-items: center;
-        bottom: -15%;
-        left: 15%;
+        bottom: -2%;
+        left: 25%;
         transform: rotate(-90deg);
         font-size: 2.5rem;
     }
