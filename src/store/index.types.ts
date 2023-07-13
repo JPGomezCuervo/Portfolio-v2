@@ -14,6 +14,10 @@ export interface WhoIAm {
   description: string;
 }
 
+export interface Technologies {
+  title: string;
+}
+
 export interface Form {
   title: string;
   subtitle: string;
@@ -84,6 +88,7 @@ export interface Languages {
   navBar: NavBar;
   hero: Hero;
   whoIAm: WhoIAm;
+  technologies: Technologies;
   form: Form;
   validations: Validation;
   footer: Footer;

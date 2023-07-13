@@ -15,6 +15,8 @@ import es_projects from "../translations/es/projects.json";
 import en_projects from "../translations/en/projects.json";
 import en_details from "../translations/en/details.json";
 import es_details from "../translations/es/details.json";
+import en_technologies from "../translations/en/technologies.json";
+import es_technologies from "../translations/es/technologies.json";
 import { RootStore } from "./index.types";
 
 
@@ -25,6 +27,7 @@ const store: Ref<RootStore> = ref({
     navBar: en_navbar,
     hero: en_hero,
     whoIAm: en_whoIAm,
+    technologies: en_technologies,
     form: en_form,
     validations: en_validations,
     footer: en_footer,
@@ -46,6 +49,7 @@ function toggleLanguage () {
       navBar: en_navbar,
       hero: en_hero,
       whoIAm: en_whoIAm,
+      technologies: en_technologies,
       form: en_form,
       validations: en_validations,
       footer: en_footer,
@@ -57,6 +61,7 @@ function toggleLanguage () {
       navBar: es_navbar,
       hero: es_hero,
       whoIAm: es_whoIAm,
+      technologies: es_technologies,
       form: es_form,
       validations: es_validations,
       footer: es_footer,
