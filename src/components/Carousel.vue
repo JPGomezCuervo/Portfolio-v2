@@ -61,7 +61,7 @@ const handleTransition = (name: string) => {
   
       <div class="navigation">
         <img name="backward" :src="arrow" class="left-arrow arrow" @click="handleBackward" />
-        <div class="romboids" v-for="(slice, sliceIndex) in slices" :key="sliceIndex" :class="{ active: sliceIndex === index }"></div>
+        <div class="romboids" v-for="(_, sliceIndex) in slices" :key="sliceIndex" :class="{ active: sliceIndex === index }"></div>
         <img name ="forward" :src="arrow" class="right-arrow arrow" @click="handleForward" />
       </div>
   
