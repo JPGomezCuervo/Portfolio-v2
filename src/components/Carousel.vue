@@ -2,30 +2,54 @@
 import arrow from "../assets/icons/icons8-arrow.svg";
 import WhoIAm from "./WhoIAm.vue";
 import Technologies from "./Technologies.vue";
+import Experience from "./Experience.vue";
 import { selectLanguages } from "../store";
+import { ref, watchEffect } from "vue";
 
-const { technologies } = selectLanguages();
+const { technologies, whoIAm, experience  } = selectLanguages();
+
+const slices = [{component: WhoIAm, title: whoIAm.value.title}, { component:Technologies, title: technologies.value.title}, {component: Experience, title: experience.value.title}];
+const index = ref(0);
+const component = ref( slices[index.value]);
+const title = ref(component.value.title);
+
+watchEffect(()=> {
+    component.value = slices[index.value];
+    title.value = component.value.title;
+});
+
+const handleForward = () => {
+    console.log(index.value)
+    if ( index.value + 1 > 2 ) return ;
+    index.value = index.value + 1;
+};
+
+const handleBackward = () => {
+    if ( index.value - 1 < 0 ) return ;
+    index.value = index.value - 1;
+};
+
 </script>
 
 <template>
     <section class="carousel" id="carousel">
 
         <div class="title">
-            <h2 class="subtitle"> {{ technologies.title }}</h2>
+            <h2 class="subtitle"> {{ title }}</h2>
         </div>
 
         <div class="display">
-            <!-- <WhoIAm/> -->
-            <Technologies/>
+            <component :is="component.component"></component>
+
         </div>
 
         <div class="navigation">
 
-            <img :src="arrow" class="left-arrow arrow" />
+            <img :src="arrow" class="left-arrow arrow" @click="handleBackward" />
             <div class="romboids"></div>
             <div class="romboids"></div>
             <div class="romboids"></div>
-            <img :src="arrow" class="right-arrow arrow" />
+            <img :src="arrow" class="right-arrow arrow" @click="handleForward" />
 
         </div>
     </section>
