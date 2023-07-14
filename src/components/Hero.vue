@@ -66,7 +66,6 @@ const { hero } = selectLanguages();
 .left-container h3 {
     font-family: "Montserrat-semiBold";
     font-size: clamp(1rem, 1rem + 1vw, 3rem);
-    // width: 30rem;
     width: clamp(15rem, 1rem + 26vw, 40rem);
 }
 

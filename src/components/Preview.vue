@@ -40,7 +40,7 @@ const images = imageSelector(props.name);
 
 <template>
     <div class="container">
-        <div v-for="image in images">
+        <div v-for="(image, index) in images" :key="index">
             <div class="tool-bar">
                 <div class="red-dot"></div>
                 <div class="yellow-dot"></div>

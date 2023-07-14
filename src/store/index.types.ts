@@ -13,6 +13,14 @@ export interface WhoIAm {
   title: string;
   description: string;
 }
+export interface Experience {
+  title: string;
+  description: string;
+}
+
+export interface Technologies {
+  title: string;
+}
 
 export interface Form {
   title: string;
@@ -84,6 +92,8 @@ export interface Languages {
   navBar: NavBar;
   hero: Hero;
   whoIAm: WhoIAm;
+  technologies: Technologies;
+  experience: Experience;
   form: Form;
   validations: Validation;
   footer: Footer;
