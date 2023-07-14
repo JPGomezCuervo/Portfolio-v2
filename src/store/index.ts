@@ -17,6 +17,8 @@ import en_details from "../translations/en/details.json";
 import es_details from "../translations/es/details.json";
 import en_technologies from "../translations/en/technologies.json";
 import es_technologies from "../translations/es/technologies.json";
+import es_experience from "../translations/es/experience.json";
+import en_experience from "../translations/en/experience.json";
 import { RootStore } from "./index.types";
 
 
@@ -32,7 +34,8 @@ const store: Ref<RootStore> = ref({
     validations: en_validations,
     footer: en_footer,
     projects: en_projects,
-    details: en_details
+    details: en_details,
+    experience: en_experience
   },
   toggleLanguage
 });
@@ -54,7 +57,8 @@ function toggleLanguage () {
       validations: en_validations,
       footer: en_footer,
       projects: en_projects,
-      details: en_details
+      details: en_details,
+      experience: en_experience
     });
   } else {
     Object.assign(languages, {
@@ -66,7 +70,8 @@ function toggleLanguage () {
       validations: es_validations,
       footer: es_footer,
       projects: es_projects,
-      details: es_details
+      details: es_details,
+      experience: es_experience
     });
   }
 };
