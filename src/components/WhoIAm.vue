@@ -2,26 +2,23 @@
 import image from "../assets/images/whoIAm/firstView/crayon-online-conversation.png";
 import { selectLanguages } from "../store";
 
-const { whoIAm }= selectLanguages();
+const { whoIAm } = selectLanguages();
 
 </script>
 
 <template>
     <div class="container">
-        <h2 class="subtitle"> {{ whoIAm.title }}</h2>
-        <div class=""> 
-            <div class="content">
-                <div class="image-frame">
-                    <img :src="image" alt=""/>
-                </div>
-                <div class="left">
-                    <p> {{ whoIAm.description }}</p>
-                </div>
-                
+        <div class="content">
+            <div class="image-frame">
+                <img :src="image" alt="" />
             </div>
-        </div>
-    </div>
+            <div class="left">
+                <p> {{ whoIAm.description }}</p>
+            </div>
 
+        </div>
+
+    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -29,9 +26,10 @@ const { whoIAm }= selectLanguages();
 
 
 .container {
-    height: 450px;
-    
+    height: 420px;
+
 }
+
 .content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -46,6 +44,7 @@ const { whoIAm }= selectLanguages();
     height: 90%;
     width: 100%;
 }
+
 .image-frame img {
     height: 100%;
     width: 90%;
@@ -59,6 +58,4 @@ const { whoIAm }= selectLanguages();
     line-height: clamp(1.8rem, 2.5vw, 2.5rem);
     margin: 0;
 }
-
-
 </style>
