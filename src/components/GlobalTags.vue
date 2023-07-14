@@ -49,5 +49,12 @@ li {
     background-color: #6F4AE7;
 }
 
+@media (max-width: 550px) {
+    .grid li {
+        padding: 5px 20px 5px 20px;
+    }
+}
+
+
 </style>
 
