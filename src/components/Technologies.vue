@@ -76,4 +76,27 @@ import GlobalTags from "./GlobalTags.vue";
         text-align: center;
     }
 }
+
+@media (max-width: 1000px) {
+
+    .container {
+        height: 420px;
+        justify-content: center;
+        align-items: center;
+    }
+    .left {
+        display: none;
+    }
+
+    .right {
+        width: 100%;
+    }
+}
+
+@media (max-width: 550px) {
+    .container {
+        transform: scale(0.8);
+    }
+}
+
 </style>

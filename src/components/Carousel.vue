@@ -34,13 +34,15 @@ const handleBackward = (event: MouseEvent | Event) => {
 
 const handleTransition = (name: string) => {
     if ( name === "forward" ) {
-        mode.value = "fade-right";
-    } else {
         mode.value = "fade-left";
+    } else {
+        mode.value = "fade-right";
     }
+};
 
-    console.log(mode.value);
-    
+const handleRomboid = (event: MouseEvent | Event) => {
+    const value = (event.target as HTMLInputElement).dataset.value;
+    index.value = Number(value);
 };
 
 
@@ -61,9 +63,8 @@ const handleTransition = (name: string) => {
   
       <div class="navigation">
         <img name="backward" :src="arrow" class="left-arrow arrow" @click="handleBackward" />
-        <div class="romboids" v-for="(_, sliceIndex) in slices" :key="sliceIndex" :class="{ active: sliceIndex === index }"></div>
-        <img name ="forward" :src="arrow" class="right-arrow arrow" @click="handleForward" />
-      </div>
+        <div class="romboids" v-for="(_, sliceIndex) in slices" :data-value="sliceIndex" @click="handleRomboid" :key="sliceIndex" :class="{ active: sliceIndex === index }"></div>
+        <img name ="forward" :src="arrow" class="right-arrow arrow" @click="handleForward" /></div>
   
     </section>
   </template>
@@ -90,7 +91,6 @@ const handleTransition = (name: string) => {
   }
   
   .display {
-    display: flex;
     width: 100%;
     grid-column: 1 / 3;
   }
@@ -165,6 +165,20 @@ const handleTransition = (name: string) => {
   &-leave-from {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@media (max-width: 1000px) {
+  .title h2 {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 700px) { 
+  .carousel {
+    padding: 0 10px;
   }
 }
 
