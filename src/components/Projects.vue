@@ -74,9 +74,8 @@ const {  projects } = selectLanguages();
 
     .main-container h2 {
         color: black;
-        font-family: "Montserrat-ExtraBold";
-        font-size:3.5rem;
-        font-weight: 200;
+        font-family: "Montserrat-Bold";
+        font-size: clamp(2.5rem, 1rem + 2.8vw, 5rem);
         margin-right: 10rem;
         padding-left: 3rem;
         text-align: left;
