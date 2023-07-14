@@ -1,23 +1,20 @@
 <script setup lang="ts">
 import image from "../assets/images/whoIAm/secondView/crayon-studying-books-and-getting-ideas.png";
-import { selectLanguages } from "../store";
 import GlobalTags from "./GlobalTags.vue";
-const { technologies } = selectLanguages();
-
 
 </script>
 
 <template>
-    <h2 class="subtitle"> {{ technologies.title }}</h2>
     <div class="container">
         <div class="content">
-            <div class="image-frame">
+
+            <div class="left">
                 <img :src="image" alt="" />
             </div>
-            <div class="tags">
+
+            <div class="right">
                 <GlobalTags />
             </div>
-
         </div>
 
     </div>
@@ -26,31 +23,36 @@ const { technologies } = selectLanguages();
 <style lang="scss" scoped>
 @import "../style.scss";
 
+.container {
+    display: flex;
+    height: 420px;
+}
+
+
 .content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    align-items: center;
-    justify-items: center;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 
-
-.image-frame {
-    width: 50%;
-}
-
-.image-frame img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-}
-
-.tags {
+.left {
     display: flex;
     justify-content: center;
     align-content: center;
+    width: 50%;
 }
 
+.left img {
+    object-fit: scale-down;
+    width: 55%;
+}
+
+.right {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 50%;
+}
 
 @media (max-width: 1000px) {
 

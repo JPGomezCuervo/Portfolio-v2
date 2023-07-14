@@ -9,9 +9,6 @@ const frontTags = tags.tags.frontEnd;
 <template>
     <ul class="grid">
         <li v-for="(tag, index) in frontTags" :key="index" class="front">{{ tag }}</li>
-    <!-- </ul>
-
-    <ul class="back"> -->
         <li v-for="(tag, index) in backTags" :key="index" class="back">{{ tag }}</li>
     </ul>
 </template>
@@ -19,19 +16,30 @@ const frontTags = tags.tags.frontEnd;
 <style scoped>
 
 ul {
-    margin: 0;
     padding: 0;
+    margin: 0;
+}
+
+li {
+    cursor: auto;
+    margin: 0;
 }
 
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: max-content;
-    gap: 20%;    
+    column-gap: clamp(10px, 5vw, 60px);
     font-family: "Montserrat-Medium";
     font-size: 1.5rem;
     color: white;
     text-align: center;
+    height: clamp(200px, 40vh, 260px);
+    align-self: center;
+}
+
+.grid li {
+    height: fit-content;
+    padding: 5px 45px 5px 45px;
 }
 
 .front {
