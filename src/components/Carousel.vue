@@ -168,6 +168,20 @@ const handleRomboid = (event: MouseEvent | Event) => {
   }
 }
 
+@media (max-width: 1000px) {
+  .title h2 {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 550px) { 
+  .carousel {
+    padding: 0 10px;
+  }
+}
+
   </style>
   
   
