@@ -103,6 +103,7 @@ const { whoIAm } = selectLanguages();
 
     .right p {
         font-size: 1.2rem;
+        line-height: 2rem;
     }
 }
 </style>

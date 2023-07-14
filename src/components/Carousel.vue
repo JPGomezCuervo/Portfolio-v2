@@ -176,7 +176,7 @@ const handleRomboid = (event: MouseEvent | Event) => {
   }
 }
 
-@media (max-width: 550px) { 
+@media (max-width: 700px) { 
   .carousel {
     padding: 0 10px;
   }
