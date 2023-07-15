@@ -122,7 +122,7 @@ const { navBar } = selectLanguages();
     left: 0;
     width: 96%;
     align-items: center;
-    min-height: 12vh;
+    min-height: 100px;
     padding: 0 2% 0 2%;
     box-shadow: 0 .4rem 0.4rem rgba(99, 99, 99, 0.6);
     transition: 0.1s all ease-out;
