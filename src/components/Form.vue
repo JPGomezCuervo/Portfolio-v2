@@ -4,7 +4,8 @@ import BaseInput from "./BaseInput.vue";
 import { selectLanguages, setReference } from "../store";
 import { useForm, useField } from "vee-validate";
 import validations from "../helpers/validations";
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
+import emailjs from '@emailjs/browser';
 
 
 const { form } = selectLanguages();
@@ -19,9 +20,6 @@ const { handleSubmit, errors } = useForm({
     }
 })
 
-const submit = handleSubmit(() => {
-    console.log("Form submitted", name.value, email.value, message.value);
-})
 
 const { value: name } = useField<string>("name");
 const { value: email } = useField<string>("email");
@@ -33,6 +31,49 @@ onMounted(() => {
     if (form_section.value) {
         setReference("form", form_section.value);
     }
+});
+
+
+const EMAIL_JS_API = import.meta.env.VITE_EMAIL_JS_API;
+const EMAIL_JS_TEMPLATE = import.meta.env.VITE_EMAIL_JS_TEMPLATE;
+const EMAIL_JS_KEY = import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY;
+
+// const formEmail = ref<HTMLFormElement | null>(null);
+
+const formEmail =computed(() =>{
+    if (!name.value || !email.value || !message.value) {
+        return null;
+    }
+
+    return {
+        name: name.value,
+        email: email.value,
+        message: message.value
+    }
+});
+
+
+const submit = handleSubmit(() => {
+    if (!EMAIL_JS_API || !EMAIL_JS_TEMPLATE || !EMAIL_JS_KEY) {
+        console.log('An unexpected error just occurred');
+        return;
+    }
+
+    if (!formEmail.value) {
+        console.log('Form reference is not available');
+        return;
+    }
+
+    console.log(formEmail.value);
+
+    emailjs
+        .send(EMAIL_JS_API, EMAIL_JS_TEMPLATE, formEmail.value, EMAIL_JS_KEY)
+        .then((response:string) => {
+            console.log(response);
+        })
+        .catch((error:string) => {
+            console.log(error);
+        });
 });
 
 
@@ -51,34 +92,20 @@ onMounted(() => {
                 <form class="right-form-container" @submit="submit">
                     <fieldset>
                         <legend>Personal information</legend>
-                        <BaseInput 
-                            class="input-form-container" 
-                            :label="form.form.name"
-                            :placeholder="form.form.namePlaceholder" 
-                            type="text" 
-                            :name="form.form.name" 
-                            v-model:modelValue="name"
-                            :error="errors.name" />
-                        <BaseInput 
-                            class="input-form-container" 
-                            :label="form.form.email"
-                            :placeholder="form.form.emailPlaceholder" 
-                            type="email" 
-                            :name="form.form.email" 
-                            v-model:modelValue="email"
-                            :error="errors.email" />
+                        <BaseInput class="input-form-container" :label="form.form.name"
+                            :placeholder="form.form.namePlaceholder" type="text" :name="form.form.name"
+                            v-model:modelValue="name" :error="errors.name" />
+                        <BaseInput class="input-form-container" :label="form.form.email"
+                            :placeholder="form.form.emailPlaceholder" type="email" :name="form.form.email"
+                            v-model:modelValue="email" :error="errors.email" />
                     </fieldset>
 
                     <fieldset>
 
                         <legend>Write your message</legend>
-                        <TextArea 
-                            class="input-form-container message" 
-                            :label="form.form.message"
-                            :placeholder="form.form.messagePlaceholder" 
-                            :name="form.form.message" 
-                            v-model:modelValue="message"
-                            :error="errors.message" />
+                        <TextArea class="input-form-container message" :label="form.form.message"
+                            :placeholder="form.form.messagePlaceholder" :name="form.form.message"
+                            v-model:modelValue="message" :error="errors.message" />
                     </fieldset>
 
 
@@ -97,6 +124,7 @@ onMounted(() => {
     margin-bottom: 10%;
     margin-top: 0;
 }
+
 .form-split {
     display: block;
     padding: 60px 0;
@@ -246,12 +274,14 @@ legend {
         padding: 0;
         padding-bottom: 5%;
     }
+
     .form-container {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 1fr;
         padding: 0 40px;
         margin: 0;
     }
+
     .left-form-container {
         display: flex;
         flex-direction: column;
