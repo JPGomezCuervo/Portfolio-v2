@@ -37,7 +37,14 @@ const store: Ref<RootStore> = ref({
     details: en_details,
     experience: en_experience
   },
-  toggleLanguage
+  toggleLanguage,
+
+  references: {
+    carousel: null,
+    projects: null,
+    form: null
+  },
+  setReferences
 });
 
 //Function that toggles the langugage and updates the store languages
@@ -76,10 +83,16 @@ function toggleLanguage () {
   }
 };
 
+function setReferences (key: "carousel" | "form" | "projects", value: any) {
+  store.value.references[key] = value;
+}
+
 //selectors
 
 export const selectActiveLanguage = () => store.value.activeLanguage;
 export const selectLanguages = () => toRefs(store.value.languages);
 export const setLanguage = () => store.value.toggleLanguage();
+export const selectReferences = () => store.value.references;
+export const setReference = store.value.setReferences;
 
 export default store;

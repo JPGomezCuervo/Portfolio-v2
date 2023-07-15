@@ -6,7 +6,6 @@ import githubIcon from "../assets/icons/github.svg";
 import url from "../helpers/constants.json";
 import hamburguerIcon from "../assets/icons/icons8-menu.svg";
 import { computed, ref, onMounted, onBeforeUnmount } from "vue";
-import { RouterLink } from "vue-router";
 import { selectActiveLanguage, selectLanguages, setLanguage } from "../store/index.ts";
 
 //Implement the language toggle
@@ -47,6 +46,7 @@ onBeforeUnmount(() => {
 
 const { navBar } = selectLanguages();
 
+
 </script>
 
 <template>
@@ -56,16 +56,16 @@ const { navBar } = selectLanguages();
         </div>
         <ul class="options-container">
 
-            <li>
-                <router-link to="/projects"> {{ navBar.whoIAm }} </router-link>
+            <li @click="$emit('clicked', 'carousel')">
+                {{ navBar.whoIAm }}
             </li>
 
-            <li>
-                <a href="">{{ navBar.projects }}</a>
+            <li @click="$emit('clicked', 'projects')">
+               {{ navBar.projects }}
             </li>
 
-            <li>
-                <a href="">{{ navBar.contactMe }}</a>
+            <li @click="$emit('clicked', 'form')">
+                {{ navBar.contactMe }}
             </li>
 
         </ul>

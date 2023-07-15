@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import TextArea from "./TextArea.vue";
 import BaseInput from "./BaseInput.vue";
-import { selectLanguages } from "../store";
+import { selectLanguages, setReference } from "../store";
 import { useForm, useField } from "vee-validate";
 import validations from "../helpers/validations";
+import { onMounted, ref } from "vue";
+
 
 const { form } = selectLanguages();
+
 
 const { handleSubmit, errors } = useForm({
     validationSchema: validations,
@@ -24,10 +27,19 @@ const { value: name } = useField<string>("name");
 const { value: email } = useField<string>("email");
 const { value: message } = useField<string>("message");
 
+const form_section = ref<HTMLElement | null>(null);
+
+onMounted(() => {
+    if (form_section.value) {
+        setReference("form", form_section.value);
+    }
+});
+
+
 </script>
 
 <template>
-    <section class="background">
+    <section class="background" ref="form_section">
         <div class="form-split">
             <div class="form-container">
                 <div class="left-form-container">

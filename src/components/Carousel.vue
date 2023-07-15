@@ -3,8 +3,8 @@ import arrow from "../assets/icons/icons8-arrow.svg";
 import WhoIAm from "./WhoIAm.vue";
 import Technologies from "./Technologies.vue";
 import Experience from "./Experience.vue";
-import { selectLanguages } from "../store";
-import { ref,computed } from "vue";
+import { selectLanguages, setReference } from "../store";
+import { ref,computed, onMounted } from "vue";
 
 const { technologies, whoIAm, experience  } = selectLanguages();
 
@@ -45,11 +45,17 @@ const handleRomboid = (event: MouseEvent | Event) => {
     index.value = Number(value);
 };
 
+const carousel_section = ref<HTMLElement | null>(null);
+
+onMounted(()=> {
+  carousel_section.value && setReference("carousel", carousel_section.value);
+})
+
 
 </script>
 
 <template>
-    <section class="carousel" id="carousel">
+    <section class="carousel" ref="carousel_section">
   
       <div class="title">
         <h2 class="subtitle">{{ title }}</h2>

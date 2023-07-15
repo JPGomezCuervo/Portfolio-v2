@@ -5,7 +5,6 @@ import { selectLanguages } from "../store";
 
 const { hero } = selectLanguages();
 
-
 </script>
 
 <template>
