@@ -68,6 +68,10 @@ const { footer } = selectLanguages();
 <style scoped lang="scss">
 @import "../style.scss";
 
+li {
+    cursor:pointer
+}
+
 .footer {
     padding-left: 10%;
     padding-right: 10%;

@@ -114,6 +114,10 @@ const { navBar } = selectLanguages();
 <style lang="scss" scoped>
 @import "../style.scss";
 
+
+li {
+    cursor:pointer
+}
 .navbar {
     background-color: white;
     display: flex;
