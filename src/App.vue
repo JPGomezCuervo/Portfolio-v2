@@ -40,7 +40,7 @@ const handleClick = (name:string) => {
 <template>
   <NavBar @clicked="handleClick"/>
   <RouterView/>
-  <Footer/>
+  <Footer @clicked="handleClick"/>
 </template>
 
 <style lang="scss" scoped>
