@@ -110,8 +110,8 @@ const handleRomboid = (event: MouseEvent | Event) => {
     height: .6rem;
     background-color: transparent;
     transform: rotate(45deg);
-    margin-left: .5%;
-    margin-right: .5%;
+    margin-left: 1%;
+    margin-right: 1%;
     border: 2px solid black;
     cursor: pointer;
     transition: background-color 0.3s;
