@@ -35,6 +35,11 @@ export interface Form {
     messagePlaceholder: string;
     button: string;
   };
+  submitted: {
+    successfullyResponse: string;
+    rejectedResponse: string;
+    button: string;
+  }
 }
 
 export interface Validation {
