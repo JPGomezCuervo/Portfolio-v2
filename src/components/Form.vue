@@ -7,10 +7,12 @@ import validations from "../helpers/validations";
 import { computed, onMounted, ref } from "vue";
 import emailjs from '@emailjs/browser';
 
+// Import the .env variables
+const EMAIL_JS_API = import.meta.env.VITE_EMAIL_JS_API;
+const EMAIL_JS_TEMPLATE = import.meta.env.VITE_EMAIL_JS_TEMPLATE;
+const EMAIL_JS_KEY = import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY;
 
-const { form } = selectLanguages();
-
-
+// Set up the form with vee-validate
 const { handleSubmit, errors } = useForm({
     validationSchema: validations,
     initialValues: {
@@ -19,28 +21,13 @@ const { handleSubmit, errors } = useForm({
         message: ""
     }
 })
-
-
 const { value: name } = useField<string>("name");
 const { value: email } = useField<string>("email");
 const { value: message } = useField<string>("message");
 
-const form_section = ref<HTMLElement | null>(null);
 
-onMounted(() => {
-    if (form_section.value) {
-        setReference("form", form_section.value);
-    }
-});
-
-
-const EMAIL_JS_API = import.meta.env.VITE_EMAIL_JS_API;
-const EMAIL_JS_TEMPLATE = import.meta.env.VITE_EMAIL_JS_TEMPLATE;
-const EMAIL_JS_KEY = import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY;
-
-// const formEmail = ref<HTMLFormElement | null>(null);
-
-const formEmail =computed(() =>{
+// Computed property to get the form data
+const formEmail = computed(() => {
     if (!name.value || !email.value || !message.value) {
         return null;
     }
@@ -52,6 +39,10 @@ const formEmail =computed(() =>{
     }
 });
 
+// Handle the form submit
+
+const serverError = ref("");
+const serverSuccess = ref("Eso");
 
 const submit = handleSubmit(() => {
     if (!EMAIL_JS_API || !EMAIL_JS_TEMPLATE || !EMAIL_JS_KEY) {
@@ -64,19 +55,36 @@ const submit = handleSubmit(() => {
         return;
     }
 
-    console.log(formEmail.value);
-
     emailjs
         .send(EMAIL_JS_API, EMAIL_JS_TEMPLATE, formEmail.value, EMAIL_JS_KEY)
-        .then((response:string) => {
-            console.log(response);
+        .then(() => {
+            serverSuccess.value = form.value.submitted.successfullyResponse;
+            serverError.value = "";
         })
-        .catch((error:string) => {
-            console.log(error);
+        .catch(() => {
+            serverError.value = form.value.submitted.rejectedResponse;
+            serverSuccess.value = "";
         });
 });
 
+// function to set the reference to the form section
+const form_section = ref<HTMLElement | null>(null);
 
+onMounted(() => {
+    if (form_section.value) {
+        setReference("form", form_section.value);
+    }
+});
+
+const handleModalClick = () => {
+    serverError.value = '';
+    serverSuccess.value = '';
+    name.value = '';
+    email.value = '';
+    message.value = '';
+}
+
+const { form } = selectLanguages();
 </script>
 
 <template>
@@ -87,29 +95,49 @@ const submit = handleSubmit(() => {
                     <h2 class="subtitle form">{{ form.title }}</h2>
                     <h3>{{ form.subtitle }}</h3>
                     <p>{{ form.description }}</p>
-
+                    
                 </div>
-                <form class="right-form-container" @submit="submit">
-                    <fieldset>
-                        <legend>Personal information</legend>
-                        <BaseInput class="input-form-container" :label="form.form.name"
-                            :placeholder="form.form.namePlaceholder" type="text" :name="form.form.name"
-                            v-model:modelValue="name" :error="errors.name" />
-                        <BaseInput class="input-form-container" :label="form.form.email"
-                            :placeholder="form.form.emailPlaceholder" type="email" :name="form.form.email"
-                            v-model:modelValue="email" :error="errors.email" />
-                    </fieldset>
+                <form @submit="submit">
+                    <div class="right-form-container">
+                        <!-- Modal to show the server response -->
+                        <div class="modal-container" v-if="serverSuccess">
+                            <div class="modal">
+                                {{ serverSuccess }}
+                            </div>
+                            <button type="button" @click="handleModalClick">{{ form.submitted.button }}</button>
+                        </div>
+        
+                        <div class="modal-container" v-if="serverError">
+                            <div class="modal">
+                                {{ serverError }}
+                            </div>
+                            <button type="button" @click="handleModalClick">{{ form.submitted.button }}</button>
+                        </div>
 
-                    <fieldset>
+                        <!-- Starts the input fields -->
+                        <fieldset>
+                            <legend>Personal information</legend>
+                            <BaseInput class="input-form-container" :label="form.form.name"
+                                :placeholder="form.form.namePlaceholder" type="text" :name="form.form.name"
+                                v-model:modelValue="name" :error="errors.name" />
+                            <BaseInput class="input-form-container" :label="form.form.email"
+                                :placeholder="form.form.emailPlaceholder" type="email" :name="form.form.email"
+                                v-model:modelValue="email" :error="errors.email" />
+                        </fieldset>
 
-                        <legend>Write your message</legend>
-                        <TextArea class="input-form-container message" :label="form.form.message"
-                            :placeholder="form.form.messagePlaceholder" :name="form.form.message"
-                            v-model:modelValue="message" :error="errors.message" />
-                    </fieldset>
+                        <fieldset>
+
+                            <legend>Write your message</legend>
+                            <TextArea class="input-form-container message" :label="form.form.message"
+                                :placeholder="form.form.messagePlaceholder" :name="form.form.message"
+                                v-model:modelValue="message" :error="errors.message" />
+                        </fieldset>
 
 
-                    <button type="submit">{{ form.form.button }}</button>
+                        <button type="submit">{{ form.form.button }}</button>
+
+                    </div>
+
 
                 </form>
             </div>
@@ -162,6 +190,7 @@ const submit = handleSubmit(() => {
 }
 
 .right-form-container {
+    position:relative;
     width: 75%;
     height: fit-content;
     background-color: white;
@@ -260,12 +289,38 @@ legend {
 }
 
 .right-form-container p {
-    font-family: "Montserrat-Light";
+    font-family: "Montserrat-SemiBold";
     font-size: .95rem;
     color: #6F4AE7;
     margin: 0;
     text-align: center;
     align-self: center;
+}
+
+.modal-container {
+    background-color: white;
+    position:absolute;
+    width: 99%;
+    z-index: 100;
+    height: 99%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    font-family: "Montserrat-Bold";
+    font-size: 2rem;
+    margin: 0 auto;
+    width: 55%;
+    text-align: center;
+    color:  #6F4AE7; 
 }
 
 @media (max-width: 1000px) {
