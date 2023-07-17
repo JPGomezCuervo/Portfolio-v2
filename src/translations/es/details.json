@@ -11,8 +11,8 @@
             "frontEnd": ["TypeScript", "VueJS", "CSS", "Email.js", "VeeValidate"],
             "backEnd": []
         },
-        "deploy":"https://portfolio-juan-kappa.vercel.app/",
-        "sourceCode": "https://github.com/JPGomezCuervo/Portfolio"
+        "deploy":"https://portfolio-juangomez.vercel.app/",
+        "sourceCode": "https://github.com/JPGomezCuervo/Portfolio-v2"
     },
     "musclelab": {
         "date": "Mayo 2023",
