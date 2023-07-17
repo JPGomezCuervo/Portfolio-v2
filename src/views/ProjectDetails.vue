@@ -8,7 +8,7 @@ import whiteGithub from "../assets/icons/white-github.svg";
 import { selectLanguages } from '../store';
 import { useRoute } from "vue-router";
 import { ProjectsName } from "../store/index.types";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import Preview from '../components/Preview.vue';
     
 const { goBack, viewProject, viewSourceCode } = selectLanguages().details.value;
@@ -19,12 +19,19 @@ const { date, description, name, technologies } = selectLanguages().details.valu
 
 const isHovered = ref(false);
 
+const handleNavigation = () => {
+    window.history.back();
+}
+
+onMounted(()=>{ 
+    window.scrollTo(0, 0);
+})
 
 </script>
 
 <template>
     <div class="split">
-        <div class="navegation">
+        <div class="navegation" @click="handleNavigation">
             <img :src="arrow" alt="" />
             <p>{{ goBack }}</p>
         </div>

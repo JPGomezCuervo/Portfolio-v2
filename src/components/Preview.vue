@@ -36,6 +36,10 @@ const imageSelector = (name: ProjectsName) => {
 const images = imageSelector(props.name);
 
 
+const handleNavigation = () => {
+    window.history.back();
+}
+
 </script>
 
 <template>
@@ -50,7 +54,7 @@ const images = imageSelector(props.name);
             <img :src="image" alt="">
         </div>
 
-        <div class="navegation">
+        <div class="navegation" @click="handleNavigation">
                 <img :src="arrow" alt=""/>
                 <p>{{ goBack }}</p>
             </div>
@@ -132,7 +136,8 @@ const images = imageSelector(props.name);
     width: 20%;
 }
 .navegation p {
-    font-size: 1.6rem;
+    font-family: "Montserrat-Regular";
+    font-size: 1.5rem;
     margin: auto 0;
     width: 100%;
     height: 100%;
