@@ -19,7 +19,7 @@ const handleForward = (event: MouseEvent | Event) => {
     const name = (event.target as HTMLInputElement).name;
     handleTransition(name);
 
-    if ( index.value + 1 > 2 ) return ;
+    if ( index.value + 1 > 2 ) return index.value = 0;
     index.value = index.value + 1;
 };
 const mode = ref("out-in");
@@ -28,7 +28,7 @@ const handleBackward = (event: MouseEvent | Event) => {
     const name = (event.target as HTMLInputElement).name;
     handleTransition(name);
 
-    if ( index.value - 1 < 0 ) return ;
+    if ( index.value - 1 < 0 ) return index.value = 2 ;
     index.value = index.value - 1;
 };
 

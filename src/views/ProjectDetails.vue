@@ -18,6 +18,15 @@ const params = useRoute().params.name as ProjectsName;
 const { date, description, name, technologies, deploy, sourceCode } = selectLanguages().details.value[params];
 
 const isHovered = ref(false);
+const isClicked = ref(false);
+
+const handleIsClicked = () => {
+    isClicked.value = true;
+
+    setTimeout(() => {
+        isClicked.value = false;
+    }, 1000);
+}
 
 const handleNavigation = () => {
     window.history.back();
@@ -52,8 +61,9 @@ onMounted(()=>{
                         <a :href="deploy" target="_blank">{{ viewProject }}</a>
                     </div>
                         
-                    <a :href="sourceCode" target="_blank" @mouseenter="isHovered = true" @mouseleave="isHovered = false" class="secondary-button">
-                        <img v-if="!isHovered" :src="github" />
+                    <a :href="sourceCode" target="_blank" @mouseenter="isHovered = true" @mouseleave="isHovered = false" @click="handleIsClicked" class="secondary-button">
+                        <img v-if="isClicked" :src="github"/>
+                        <img v-else-if="!isHovered" :src="github" />
                         <img v-else :src="whiteGithub"/>
                         {{ viewSourceCode }}
                     </a>
