@@ -52,13 +52,26 @@ onBeforeUnmount(() => {
     window.removeEventListener("scroll", handleScroll);
 });
 
+const handleLogoClick = () => {
+
+window.scrollTo({
+    top:0,
+    left:0,
+    behavior: "smooth"
+})
+setTimeout(() =>{
+    window.location.href = "/";
+
+}, 200)
+}
+
 const { navBar } = selectLanguages();
 
 </script>
 
 <template>
     <nav class="navbar" :class="{ 'navbar--hidden': !showNavBar }">
-        <div class="logo">
+        <div class="logo" @click="handleLogoClick">
             <p>https://Juan Gómez</p>
         </div>
         <ul class="options-container">

@@ -8,11 +8,11 @@
     "description": "Portfolio is a web page designed to showcase and manage my personal work profile. It is my first complete project developed using TypeScript. Its goal is to be an impeccable and visually appealing application that provides a pleasant navigation experience.",
     "technologies": {
       "title": "technologies & libraries",
-      "frontEnd": ["TypeScript", "React", "CSS", "Email.js"],
+      "frontEnd": ["TypeScript", "VueJS", "CSS", "Email.js", "VeeValidate"],
       "backEnd": []
     },
-    "deploy": "https://portfolio-juan-kappa.vercel.app/",
-    "sourceCode": "https://github.com/JPGomezCuervo/Portfolio"
+    "deploy":"https://portfolio-juangomez.vercel.app/",
+    "sourceCode": "https://github.com/JPGomezCuervo/Portfolio-v2"
   },
   "musclelab": {
     "date": "May 2023",

@@ -8,23 +8,39 @@ import whiteGithub from "../assets/icons/white-github.svg";
 import { selectLanguages } from '../store';
 import { useRoute } from "vue-router";
 import { ProjectsName } from "../store/index.types";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import Preview from '../components/Preview.vue';
     
 const { goBack, viewProject, viewSourceCode } = selectLanguages().details.value;
 
 const params = useRoute().params.name as ProjectsName;
 
-const { date, description, name, technologies } = selectLanguages().details.value[params];
+const { date, description, name, technologies, deploy, sourceCode } = selectLanguages().details.value[params];
 
 const isHovered = ref(false);
+const isClicked = ref(false);
 
+const handleIsClicked = () => {
+    isClicked.value = true;
+
+    setTimeout(() => {
+        isClicked.value = false;
+    }, 1000);
+}
+
+const handleNavigation = () => {
+    window.history.back();
+}
+
+onMounted(()=>{ 
+    window.scrollTo(0, 0);
+})
 
 </script>
 
 <template>
     <div class="split">
-        <div class="navegation">
+        <div class="navegation" @click="handleNavigation">
             <img :src="arrow" alt="" />
             <p>{{ goBack }}</p>
         </div>
@@ -42,14 +58,15 @@ const isHovered = ref(false);
                 <div class="buttons-container">
                     <div class="primary-button">
                         <img :src="eye" alt="" />
-                        <button>{{ viewProject }}</button>
+                        <a :href="deploy" target="_blank">{{ viewProject }}</a>
                     </div>
                         
-                    <button @mouseenter="isHovered = true" @mouseleave="isHovered = false" class="secondary-button">
-                        <img v-if="!isHovered" :src="github" />
+                    <a :href="sourceCode" target="_blank" @mouseenter="isHovered = true" @mouseleave="isHovered = false" @click="handleIsClicked" class="secondary-button">
+                        <img v-if="isClicked" :src="github"/>
+                        <img v-else-if="!isHovered" :src="github" />
                         <img v-else :src="whiteGithub"/>
                         {{ viewSourceCode }}
-                    </button>
+                    </a>
                 </div>
             </div>
             <div class="right">
@@ -190,7 +207,7 @@ const isHovered = ref(false);
     height: 1.2rem;
     margin-right: .5rem;
 }
-.primary-button button {
+.primary-button a {
     background-color: transparent;
     border: 0;
     margin: auto auto;
