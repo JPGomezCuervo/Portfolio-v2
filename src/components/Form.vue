@@ -13,13 +13,14 @@ const EMAIL_JS_TEMPLATE = import.meta.env.VITE_EMAIL_JS_TEMPLATE;
 const EMAIL_JS_KEY = import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY;
 
 // Set up the form with vee-validate
-const { handleSubmit, errors } = useForm({
+const { handleSubmit, errors, resetForm } = useForm({
     validationSchema: validations,
     initialValues: {
         name: "",
         email: "",
         message: ""
-    }
+    },
+    validateOnMount: false
 })
 const { value: name } = useField<string>("name");
 const { value: email } = useField<string>("email");
@@ -42,7 +43,7 @@ const formEmail = computed(() => {
 // Handle the form submit
 
 const serverError = ref("");
-const serverSuccess = ref("Eso");
+const serverSuccess = ref("");
 
 const submit = handleSubmit(() => {
     if (!EMAIL_JS_API || !EMAIL_JS_TEMPLATE || !EMAIL_JS_KEY) {
@@ -60,11 +61,13 @@ const submit = handleSubmit(() => {
         .then(() => {
             serverSuccess.value = form.value.submitted.successfullyResponse;
             serverError.value = "";
+            
         })
         .catch(() => {
             serverError.value = form.value.submitted.rejectedResponse;
             serverSuccess.value = "";
         });
+
 });
 
 // function to set the reference to the form section
@@ -79,9 +82,7 @@ onMounted(() => {
 const handleModalClick = () => {
     serverError.value = '';
     serverSuccess.value = '';
-    name.value = '';
-    email.value = '';
-    message.value = '';
+    resetForm();
 }
 
 const { form } = selectLanguages();
