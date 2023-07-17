@@ -31,9 +31,9 @@ const { footer } = selectLanguages();
             <div class="navigation">
                 <h3>{{ footer.navigation }}</h3>
                 <ul>
-                    <li>{{ footer.whoIAm }}</li>
-                    <li>{{ footer.projects }}</li>
-                    <li>{{ footer.contactMe }}</li>
+                    <li @click="$emit('clicked', 'carousel')">{{ footer.whoIAm }}</li>
+                    <li @click="$emit('clicked', 'projects')" >{{ footer.projects }}</li>
+                    <li @click="$emit('clicked', 'form')" >{{ footer.contactMe }}</li>
                 </ul>
             </div>
 
@@ -67,6 +67,10 @@ const { footer } = selectLanguages();
 
 <style scoped lang="scss">
 @import "../style.scss";
+
+li {
+    cursor:pointer
+}
 
 .footer {
     padding-left: 10%;

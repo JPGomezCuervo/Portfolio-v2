@@ -35,6 +35,11 @@ export interface Form {
     messagePlaceholder: string;
     button: string;
   };
+  submitted: {
+    successfullyResponse: string;
+    rejectedResponse: string;
+    button: string;
+  }
 }
 
 export interface Validation {
@@ -105,6 +110,12 @@ export interface RootStore {
   activeLanguage: Language;
   languages : Languages;
   toggleLanguage: () => void;
+  references: {
+    carousel: any;
+    projects: any;
+    form: any;
+  }
+  setReferences: (key: "carousel" | "form" | "projects", value: any) => void;
 }
 
 export interface BaseInput {

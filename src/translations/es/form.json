@@ -10,5 +10,10 @@
         "message": "Mensaje",
         "messagePlaceholder": "Tu mensaje...",
         "button": "Enviar correo"
+    },
+    "submitted": {
+        "successfullyResponse": "Mensaje enviado",
+        "rejectedResponse" : "Ups, algo salió mal",
+        "button": "Hecho"
     }
 }

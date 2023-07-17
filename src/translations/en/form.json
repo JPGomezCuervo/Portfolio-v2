@@ -10,5 +10,10 @@
         "message": "Message",
         "messagePlaceholder": "Your message...",
         "button": "Send email"
+    },
+    "submitted": {
+        "successfullyResponse": "Message sent",
+        "rejectedResponse" : "Oops, something went wrong :(",
+        "button": "Done"
     }
 }

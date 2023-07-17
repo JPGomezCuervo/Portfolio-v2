@@ -6,7 +6,6 @@ import githubIcon from "../assets/icons/github.svg";
 import url from "../helpers/constants.json";
 import hamburguerIcon from "../assets/icons/icons8-menu.svg";
 import { computed, ref, onMounted, onBeforeUnmount } from "vue";
-import { RouterLink } from "vue-router";
 import { selectActiveLanguage, selectLanguages, setLanguage } from "../store/index.ts";
 
 //Implement the language toggle
@@ -20,7 +19,11 @@ const windowScroll = ref(0);
 const showNavBar = ref(true);
 const lastScrollPosition = ref(0);
 
+const runningEffect = ref(false);
+
 const handleScroll = () => {
+
+    runningEffect.value = true;
 
     // Get the current position
     windowScroll.value = window.scrollY;
@@ -29,16 +32,20 @@ const handleScroll = () => {
     if (windowScroll.value < 0) return;
 
     // If the difference between the current position and the last position is less than 80px, do nothing
-    if (Math.abs(windowScroll.value - lastScrollPosition.value) <= 100) return;
+    if (Math.abs(windowScroll.value - lastScrollPosition.value) <= 60) return;
 
     // If the current position is greater than the last position, hide the navbar, otherwise show it
     showNavBar.value = windowScroll.value < lastScrollPosition.value;
     lastScrollPosition.value = windowScroll.value;
+
+    runningEffect.value = false;
+
 };
 
 //Add event listeners and clean them up
 onMounted(() => {
     window.addEventListener("scroll", handleScroll);
+    
 });
 
 onBeforeUnmount(() => {
@@ -56,16 +63,16 @@ const { navBar } = selectLanguages();
         </div>
         <ul class="options-container">
 
-            <li>
-                <router-link to="/projects"> {{ navBar.whoIAm }} </router-link>
+            <li @click="$emit('clicked', 'carousel')">
+                {{ navBar.whoIAm }}
             </li>
 
-            <li>
-                <a href="">{{ navBar.projects }}</a>
+            <li @click="$emit('clicked', 'projects')">
+               {{ navBar.projects }}
             </li>
 
-            <li>
-                <a href="">{{ navBar.contactMe }}</a>
+            <li @click="$emit('clicked', 'form')">
+                {{ navBar.contactMe }}
             </li>
 
         </ul>
@@ -114,6 +121,10 @@ const { navBar } = selectLanguages();
 <style lang="scss" scoped>
 @import "../style.scss";
 
+
+li {
+    cursor:pointer
+}
 .navbar {
     background-color: white;
     display: flex;
