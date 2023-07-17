@@ -15,7 +15,7 @@ const { goBack, viewProject, viewSourceCode } = selectLanguages().details.value;
 
 const params = useRoute().params.name as ProjectsName;
 
-const { date, description, name, technologies } = selectLanguages().details.value[params];
+const { date, description, name, technologies, deploy, sourceCode } = selectLanguages().details.value[params];
 
 const isHovered = ref(false);
 
@@ -49,14 +49,14 @@ onMounted(()=>{
                 <div class="buttons-container">
                     <div class="primary-button">
                         <img :src="eye" alt="" />
-                        <button>{{ viewProject }}</button>
+                        <a :href="deploy" target="_blank">{{ viewProject }}</a>
                     </div>
                         
-                    <button @mouseenter="isHovered = true" @mouseleave="isHovered = false" class="secondary-button">
+                    <a :href="sourceCode" target="_blank" @mouseenter="isHovered = true" @mouseleave="isHovered = false" class="secondary-button">
                         <img v-if="!isHovered" :src="github" />
                         <img v-else :src="whiteGithub"/>
                         {{ viewSourceCode }}
-                    </button>
+                    </a>
                 </div>
             </div>
             <div class="right">
@@ -197,7 +197,7 @@ onMounted(()=>{
     height: 1.2rem;
     margin-right: .5rem;
 }
-.primary-button button {
+.primary-button a {
     background-color: transparent;
     border: 0;
     margin: auto auto;
