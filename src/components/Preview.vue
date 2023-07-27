@@ -11,10 +11,6 @@ import doggofinder_a from "../assets/images/details/doggofinder/dogapi1.png";
 import doggofinder_b from "../assets/images/details/doggofinder/dogapi2.png";
 import doggofinder_c from "../assets/images/details/doggofinder/dogapi3.png";
 import { ProjectsName } from "../store/index.types";
-import { selectLanguages } from "../store";
-
-const { goBack } = selectLanguages().details.value;
-
 
 const props = defineProps<{
     name: ProjectsName;
@@ -54,9 +50,8 @@ const handleNavigation = () => {
             <img :src="image" alt="">
         </div>
 
-        <div class="navegation" @click="handleNavigation">
+        <div class="navigation" @click="handleNavigation">
                 <img :src="arrow" alt=""/>
-                <p>{{ goBack }}</p>
             </div>
 
     </div>
@@ -127,23 +122,18 @@ const handleNavigation = () => {
 
 }
 
-.navegation {
+.navigation {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     margin: 0 auto;
     align-items: center;
-    width: 20%;
-}
-.navegation p {
-    font-family: "Montserrat-Regular";
-    font-size: 1.5rem;
-    margin: auto 0;
-    width: 100%;
-    height: 100%;
+    width: 25%;
 }
 
-.navegation img {
+.navigation img {
     transform: rotate(-180deg);
     height: 3rem;
     border: 0;

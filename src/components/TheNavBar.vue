@@ -45,7 +45,7 @@ const handleScroll = () => {
 //Add event listeners and clean them up
 onMounted(() => {
     window.addEventListener("scroll", handleScroll);
-    
+
 });
 
 onBeforeUnmount(() => {
@@ -54,15 +54,39 @@ onBeforeUnmount(() => {
 
 const handleLogoClick = () => {
 
-window.scrollTo({
-    top:0,
-    left:0,
-    behavior: "smooth"
-})
-setTimeout(() =>{
-    window.location.href = "/";
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+    })
+    setTimeout(() => {
+        window.location.href = "/";
 
-}, 200)
+    }, 200)
+}
+
+const hamburguerRef = ref<HTMLInputElement | null>(null);
+
+const emit = defineEmits(['clicked']);
+
+const handleMobileOptions = (event: Event) => {
+    const target = event.target as HTMLElement;
+    const name = target.id;
+
+    switch (name) {
+        case "whoIAm":
+            emit('clicked', 'carousel')
+            break;
+        case "projects":
+            emit('clicked', 'projects')
+            break;
+        case "contactMe":
+            emit('clicked', 'form')
+            break;
+        default:
+            return;
+    }
+    if (hamburguerRef.value) hamburguerRef.value.checked = false;
 }
 
 const { navBar } = selectLanguages();
@@ -81,7 +105,7 @@ const { navBar } = selectLanguages();
             </li>
 
             <li @click="$emit('clicked', 'projects')">
-               {{ navBar.projects }}
+                {{ navBar.projects }}
             </li>
 
             <li @click="$emit('clicked', 'form')">
@@ -107,13 +131,13 @@ const { navBar } = selectLanguages();
             <img :src="hamburguerIcon" alt="" />
         </label>
 
-        <input class="checkbox" type="checkbox" name="checkbox" id="checkbox">
+        <input class="checkbox" type="checkbox" name="checkbox" id="checkbox" ref="hamburguerRef" />
 
         <div class="dropdown-menu">
             <ul>
-                <li> {{ navBar.whoIAm }} </li>
-                <li> {{ navBar.projects }} </li>
-                <li> {{ navBar.contactMe }} </li>
+                <li @click="handleMobileOptions" id="whoIAm"> {{ navBar.whoIAm }} </li>
+                <li @click="handleMobileOptions" id="projects"> {{ navBar.projects }} </li>
+                <li @click="handleMobileOptions" id="contactMe"> {{ navBar.contactMe }} </li>
             </ul>
             <div class="links-container-dropdown">
                 <a :href="url.github" target="_blank" rel="noreferrer">
@@ -136,8 +160,9 @@ const { navBar } = selectLanguages();
 
 
 li {
-    cursor:pointer
+    cursor: pointer
 }
+
 .navbar {
     background-color: white;
     display: flex;
