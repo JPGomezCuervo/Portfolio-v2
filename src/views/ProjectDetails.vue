@@ -307,6 +307,11 @@ onMounted(()=>{
         margin: 0;
         width: 96%;
     }
+    
+    .primary-button a {
+        margin-left: 0;
+    }
+
     .primary-button button {
         margin: 0;
         margin-right: auto;
@@ -318,8 +323,8 @@ onMounted(()=>{
     }
     .secondary-button {
         display: flex;
-        padding-right: auto;
         width: 100%;
+        padding: 0;
         justify-content: center;
 
     }
