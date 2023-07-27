@@ -11,10 +11,6 @@ import doggofinder_a from "../assets/images/details/doggofinder/dogapi1.png";
 import doggofinder_b from "../assets/images/details/doggofinder/dogapi2.png";
 import doggofinder_c from "../assets/images/details/doggofinder/dogapi3.png";
 import { ProjectsName } from "../store/index.types";
-import { selectLanguages } from "../store";
-
-const { goBack } = selectLanguages().details.value;
-
 
 const props = defineProps<{
     name: ProjectsName;
@@ -56,7 +52,6 @@ const handleNavigation = () => {
 
         <div class="navigation" @click="handleNavigation">
                 <img :src="arrow" alt=""/>
-                <!-- <p>{{ goBack }}</p>     -->
             </div>
 
     </div>
