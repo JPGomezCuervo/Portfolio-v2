@@ -40,7 +40,7 @@ onMounted(()=>{
 
 <template>
     <div class="split">
-        <div class="navegation" @click="handleNavigation">
+        <div class="navigation" @click="handleNavigation">
             <img :src="arrow" alt="" />
             <p>{{ goBack }}</p>
         </div>
@@ -146,21 +146,21 @@ onMounted(()=>{
     margin-bottom: 2rem;
 }
 
-.navegation {
+.navigation {
     display: flex;
     cursor: pointer;
     align-items: center;
     padding: 0 60px;
 }
 
-.navegation p {
+.navigation p {
     font-family: "Montserrat-Regular";
     font-size: 1.6rem;
     margin: auto 0;
     margin-bottom: .5rem;
 }
 
-.navegation img {
+.navigation img {
     transform: rotate(-180deg);
     height: 3rem;
     margin-right: 1.5rem;
@@ -287,10 +287,9 @@ onMounted(()=>{
         padding: 0 10px;
     }
 
-    .navegation {
+    .navigation {
         padding: 0 10px;
     }
-
     .left p {
         font-size: 1rem;
         word-spacing: -.08rem;
