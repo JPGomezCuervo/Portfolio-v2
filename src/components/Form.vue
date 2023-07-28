@@ -322,6 +322,10 @@ legend {
 }
 
 @media (max-width: 1000px) {
+    form {
+        display: flex;
+        justify-content: center;
+    }
 
     .form-split {
         padding: 0;
