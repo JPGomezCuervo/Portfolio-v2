@@ -54,6 +54,28 @@ onMounted(() => {
 })
 
 
+// const lastScrollPosition = ref(0);
+
+// const handleScrollOnX = (event: MouseEvent) => {
+//   const currentPosition = event.clientX;
+//   console.log(currentPosition);
+
+//   if (currentPosition > lastScrollPosition.value) {
+//     // Handle forward transition
+//     handleTransition("forward");
+//     if (index.value + 1 > 2) return (index.value = 0);
+//     index.value = index.value + 1;
+//   } else {
+//     // Handle backward transition
+//     handleTransition("backward");
+//     if (index.value - 1 < 0) return (index.value = 2);
+//     index.value = index.value - 1;
+//   }
+
+//   lastScrollPosition.value = currentPosition;
+// };
+
+
 </script>
 
 <template>

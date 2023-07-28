@@ -10,8 +10,8 @@ const { projects } = selectLanguages();
 
 const projects_section = ref<HTMLElement | null>(null);
 
-onMounted(()=> {
-    projects_section.value && setReference("projects", projects_section.value); 
+onMounted(() => {
+    projects_section.value && setReference("projects", projects_section.value);
 })
 
 </script>
@@ -92,9 +92,6 @@ onMounted(()=> {
     transition: .5s;
 }
 
-.portfolio:hover {
-    height: 15rem;
-}
 
 .portfolio h2 {
     font-size: 2.5rem;
@@ -120,13 +117,6 @@ onMounted(()=> {
     width: fit-content;
     height: 10rem;
 }
-
-.muscle-lab:hover {
-    height: 15rem;
-    padding-top: 5%;
-
-}
-
 
 .muscle-lab h2 {
     font-family: 'Montserrat-Bold';
@@ -193,5 +183,22 @@ onMounted(()=> {
         padding-left: 0;
         text-align: center;
     }
+}
+
+@media (hover: hover) {
+    .portfolio:hover {
+        height: 15rem;
+    }
+
+    .muscle-lab:hover {
+        height: 15rem;
+        padding-top: 5%;
+
+    }
+}
+
+
+@media (hover: none) {
+    
 }
 </style>
