@@ -65,6 +65,9 @@ const handleLogoClick = () => {
     }, 200)
 }
 
+
+// Define emit events 
+
 const hamburguerRef = ref<HTMLInputElement | null>(null);
 
 const emit = defineEmits(['clicked']);
@@ -86,7 +89,32 @@ const handleMobileOptions = (event: Event) => {
         default:
             return;
     }
+    cleanCheckbox();
+}
+
+// Handle click events to hide dropmenu
+const cleanCheckbox = () => {
+    hamburguerClicked.value = !hamburguerClicked.value;
+
+    window.removeEventListener("click", cleanCheckbox);
+
     if (hamburguerRef.value) hamburguerRef.value.checked = false;
+}
+
+const hamburguerClicked = ref(false);
+
+const handleHamburguerClick = () => {
+
+    hamburguerClicked.value = !hamburguerClicked.value;
+
+    if (hamburguerClicked.value) {
+        setTimeout(() => {
+            window.addEventListener("click", cleanCheckbox);
+        }, 0)
+    } else {
+        cleanCheckbox();
+    }
+
 }
 
 const { navBar } = selectLanguages();
@@ -98,7 +126,7 @@ const { navBar } = selectLanguages();
         <div class="logo" @click="handleLogoClick">
             <p>https://Juan Gómez</p>
         </div>
-        <ul class="options-container">
+        <ul class="options-container" @focusout="cleanCheckbox">
 
             <li @click="$emit('clicked', 'carousel')">
                 {{ navBar.whoIAm }}
@@ -131,7 +159,8 @@ const { navBar } = selectLanguages();
             <img :src="hamburguerIcon" alt="" />
         </label>
 
-        <input class="checkbox" type="checkbox" name="checkbox" id="checkbox" ref="hamburguerRef" />
+        <input class="checkbox" type="checkbox" name="checkbox" id="checkbox" ref="hamburguerRef"
+            @click="handleHamburguerClick" />
 
         <div class="dropdown-menu">
             <ul>
