@@ -61,7 +61,7 @@ const submit = handleSubmit(() => {
         .then(() => {
             serverSuccess.value = form.value.submitted.successfullyResponse;
             serverError.value = "";
-            
+
         })
         .catch(() => {
             serverError.value = form.value.submitted.rejectedResponse;
@@ -96,7 +96,7 @@ const { form } = selectLanguages();
                     <h2 class="subtitle form">{{ form.title }}</h2>
                     <h3>{{ form.subtitle }}</h3>
                     <p>{{ form.description }}</p>
-                    
+
                 </div>
                 <form @submit="submit">
                     <div class="right-form-container">
@@ -107,7 +107,7 @@ const { form } = selectLanguages();
                             </div>
                             <button type="button" @click="handleModalClick">{{ form.submitted.button }}</button>
                         </div>
-        
+
                         <div class="modal-container" v-if="serverError">
                             <div class="modal">
                                 {{ serverError }}
@@ -135,7 +135,7 @@ const { form } = selectLanguages();
                         </fieldset>
 
 
-                        <button type="submit">{{ form.form.button }}</button>
+                        <button type="submit" @click="submit">{{ form.form.button }}</button>
 
                     </div>
 
@@ -191,7 +191,7 @@ const { form } = selectLanguages();
 }
 
 .right-form-container {
-    position:relative;
+    position: relative;
     width: 75%;
     height: fit-content;
     background-color: white;
@@ -228,10 +228,7 @@ const { form } = selectLanguages();
     cursor: pointer;
 }
 
-.right-form-container button:hover {
-    background-color: #6F4AE7;
-    color: white;
-}
+
 
 .right-form-container button:active {
     background-color: white;
@@ -300,7 +297,7 @@ legend {
 
 .modal-container {
     background-color: white;
-    position:absolute;
+    position: absolute;
     width: 99%;
     z-index: 100;
     height: 99%;
@@ -321,7 +318,7 @@ legend {
     margin: 0 auto;
     width: 55%;
     text-align: center;
-    color:  #6F4AE7; 
+    color: #6F4AE7;
 }
 
 @media (max-width: 1000px) {
@@ -378,4 +375,13 @@ legend {
         width: 100%;
     }
 }
+
+@media (hover: hover) {
+    .right-form-container button:hover {
+        background-color: #6F4AE7;
+        color: white;
+    }
+}
+
+@media (hover: none) {}
 </style>

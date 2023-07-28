@@ -10,7 +10,7 @@ import { useRoute } from "vue-router";
 import { ProjectsName } from "../store/index.types";
 import { ref, onMounted } from "vue";
 import Preview from '../components/Preview.vue';
-    
+
 const { goBack, viewProject, viewSourceCode } = selectLanguages().details.value;
 
 const params = useRoute().params.name as ProjectsName;
@@ -32,7 +32,7 @@ const handleNavigation = () => {
     window.history.back();
 }
 
-onMounted(()=>{ 
+onMounted(() => {
     window.scrollTo(0, 0);
 })
 
@@ -60,37 +60,32 @@ onMounted(()=>{
                         <img :src="eye" alt="" />
                         <a :href="deploy" target="_blank">{{ viewProject }}</a>
                     </div>
-                        
-                    <a :href="sourceCode" target="_blank" @mouseenter="isHovered = true" @mouseleave="isHovered = false" @click="handleIsClicked" class="secondary-button">
-                        <img v-if="isClicked" :src="github"/>
+
+                    <a :href="sourceCode" target="_blank" @mouseenter="isHovered = true" @mouseleave="isHovered = false"
+                        @click="handleIsClicked" class="secondary-button">
+                        <img v-if="isClicked" :src="github" />
                         <img v-else-if="!isHovered" :src="github" />
-                        <img v-else :src="whiteGithub"/>
+                        <img v-else :src="whiteGithub" />
                         {{ viewSourceCode }}
                     </a>
                 </div>
             </div>
             <div class="right">
-                <img :src="image"/>
+                <img :src="image" />
             </div>
 
             <div>
                 <h3 class="technologies-title">{{ technologies.title }}</h3>
                 <div class="tags">
-                    <Tags v-if="technologies.backEnd!.length > 0" 
-                        kind="back" 
-                        :tags="technologies.backEnd"
-                    />
-        
-                    <Tags v-if="technologies.frontEnd!.length > 0" 
-                        kind="front" 
-                        :tags="technologies.frontEnd"
-                    />
+                    <Tags v-if="technologies.backEnd!.length > 0" kind="back" :tags="technologies.backEnd" />
+
+                    <Tags v-if="technologies.frontEnd!.length > 0" kind="front" :tags="technologies.frontEnd" />
                 </div>
-    
+
             </div>
         </div>
 
-        <Preview :name="params"/>
+        <Preview :name="params" />
 
     </div>
 </template>
@@ -139,7 +134,7 @@ onMounted(()=>{
     font-size: 1.2rem;
     text-align: left;
     margin: 0;
-    line-height: 1.4;   
+    line-height: 1.4;
 }
 
 #description {
@@ -174,6 +169,7 @@ onMounted(()=>{
     margin-bottom: 2rem;
     margin-top: 2%;
 }
+
 .background-date p {
     color: white;
     width: fit-content;
@@ -194,11 +190,6 @@ onMounted(()=>{
     padding: .5rem .4rem;
 }
 
-
-.primary-button:hover {
-    background-color: #5e35e4;
-}
-
 .primary-button:active {
     background-color: #6F4AE7;
 }
@@ -207,6 +198,7 @@ onMounted(()=>{
     height: 1.2rem;
     margin-right: .5rem;
 }
+
 .primary-button a {
     background-color: transparent;
     border: 0;
@@ -232,13 +224,9 @@ onMounted(()=>{
     cursor: pointer;
 }
 
-.secondary-button:hover {
-    background-color: #6F4AE7;
-    color: white;
-}
 .secondary-button:active {
-    background-color:white;
-    color:#6F4AE7;
+    background-color: white;
+    color: #6F4AE7;
 }
 
 .secondary-button img {
@@ -290,12 +278,14 @@ onMounted(()=>{
     .navigation {
         padding: 0 10px;
     }
+
     .left p {
         font-size: 1rem;
         word-spacing: -.08rem;
         line-height: 1.5rem;
 
     }
+
     .buttons-container {
         flex-direction: column;
         align-items: center;
@@ -306,7 +296,7 @@ onMounted(()=>{
         margin: 0;
         width: 96%;
     }
-    
+
     .primary-button a {
         margin-left: 0;
     }
@@ -320,6 +310,7 @@ onMounted(()=>{
     .primary-button img {
         margin-left: auto;
     }
+
     .secondary-button {
         display: flex;
         width: 100%;
@@ -330,4 +321,14 @@ onMounted(()=>{
 
 }
 
+@media (hover: hover) {
+    .primary-button:hover {
+        background-color: #5e35e4;
+    }
+
+    .secondary-button:hover {
+        background-color: #6F4AE7;
+        color: white;
+    }
+}
 </style>
